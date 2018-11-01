@@ -10,28 +10,12 @@ class Playlists extends Component {
         }
     }
 
-    // renderPlaylist(url, token) {
-    //     fetch(url, {
-    //     method: "GET",
-    //     headers: {
-    //         Authorization: {token}
-    //     }
-    //     })
-    //     .then(response => response.json())
-    //         .then(beats => {
-    //         beats.forEach((beat, index) => {
-    //             console.log(`Beat ${index} starts at ${beat.start}`);
-    //         })
-    //     })
-    // }
-
     render() {
-        console.log(this.state)
         return(
             <div className={'playlists'}>
                 <div className={'playlist'}>
                     {/*<button onClick={() => this.renderPlaylist(this.state.url, this.state.userAccessToken)}>Playlists</button>*/}
-                    <button onClick={() => this.login(this.state.url, this.state.clientId)}>Login</button>
+                    <button className={'btn'} onClick={() => this.login(this.state.url, this.state.clientId)}>Login</button>
                 </div>
             </div>
         )
