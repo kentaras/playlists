@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 
 class Header extends Component {
     render() {
+        if(this.props.name && this.props.image) {
+            return(
+                <div className={'header'}>
+                    <img src={this.props.image} className={'userImg'} />
+                    <h3 className={'userName'}>{this.props.name}</h3>
+                </div>
+            )
+        }
         return(
             <div className={'header'}>
-                <nav>
-                    <ul className={'links-ul'}>
-                        <li className={'links'}><a href={'#1'}>Section 1</a></li>
-                        <li className={'links'}><a href={'#2'}>Section 2</a></li>
-                        <li className={'links'}><a href={'#3'}>Section 3</a></li>
-                    </ul>
-                </nav>
+
             </div>
         )
     }
