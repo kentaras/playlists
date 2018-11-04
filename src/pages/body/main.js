@@ -2,30 +2,29 @@ import React, { Component } from 'react'
 
 class Main extends Component {
 
-    getTracks(keys, i) {
-        return(
+    getTracks(playlist) {
+            return(
             <ul style={{'padding' : '0'}} className={'playlistTrack'}>
-                    {this.props.playlists.playlistNames[keys[i]].slice(0, 3).map((track, index) => {
-                        return (
-                            <li key={index} className={'firstLetterUppercase'}>{track[0].toLowerCase() + ' - ' + track[1]}</li>
+                {playlist.trackNames.slice(0,3).map((track, i) => {
+                    return (
+                            <li key={i} className={'firstLetterUppercase'}>{playlist.artistNames[i]+' - ' + track}</li>
                         )
-                    })}
+                })}
             </ul>
         )
     }
 
     render() {
-        if (this.props.playlists.playlistNames) {
-            const keys = Object.keys(this.props.playlists.playlistNames)
+        if (this.props.playlists) {
             return (
                 <div className={'mainSection'}>
                     <div className={'playlistsHolder'}>
-                        {this.props.playlists.playlistImages.map((image, i) => {
+                        {this.props.playlists.map((playlist, i) => {
                             return(
                                 <div className={'playlistHolder'} key={i}>
-                                    <h2 className={'playlistName'}>{keys[i]}</h2>
-                                    <img className={'playlistImage'} src={image.url}/>
-                                    {this.getTracks(keys, i)}
+                                    <h2 className={'playlistName'}>{playlist.name}</h2>
+                                    <img className={'playlistImage'} src={playlist.image}/>
+                                    {this.getTracks(playlist)}
                                 </div>
                             )
                         })}

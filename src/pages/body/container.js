@@ -9,13 +9,12 @@ import queryString from "query-string";
 class Container extends Component {
     constructor() {
         super()
-        this.userName = ''
-        this.userImage = ''
+        this.playlist = []
         this.state = {
             login: true,
             userName: '',
             userImage: '',
-            playlistData: {},
+            playlistData: [],
             searchRequest: ''
         }
     }
@@ -29,6 +28,7 @@ class Container extends Component {
             const playlistsDataVar = {
                 playlistNames: [],
                 playlistImages: [],
+                onlyPlaylistNames: []
             }
 
             fetch(url + 'me', {
@@ -63,66 +63,28 @@ class Container extends Component {
                         })
                 }).then((playlistsArray) => {
                 playlistsArray.map((playlist) => {
-                    playlistsDataVar.playlistImages.push(playlist.images[0])
-                    playlistsDataVar.playlistNames[playlist.name] = []
+                    let listPlay = {}
+                    listPlay.name = playlist.name
+                    listPlay.image = playlist.images[0].url
+                    listPlay.trackNames = []
+                    listPlay.artistNames = []
                     playlist.trackDatas.map(trackData => {
-                        playlistsDataVar.playlistNames[playlist.name].push([trackData.track.artists[0].name, trackData.track.name])
+                        listPlay.trackNames.push(trackData.track.name)
+                        listPlay.artistNames.push(trackData.track.artists[0].name)
                     })
+                    this.playlist.push(listPlay)
                 })
-                this.setState({playlistData: playlistsDataVar})
+                this.setState({playlistData: this.playlist})
             })
-            // let urlQuery = queryString.parse(window.location.search)
-            // let accessToken = urlQuery.access_token
-            // const url = 'https://api.spotify.com/v1/'
-            // const playListDataVar = {
-            //     playlistNames: [],
-            //     playlistImages: [],
-            //     trackNames: [],
-            //     artistNames: []
-            // }
-            // let userName = ''
-            // let userImage = ''
-            // fetch(url+'me', {
-            //     headers: { 'Authorization': 'Bearer '+ accessToken}
-            // }).then(response => response.json())
-            // .then((userData) => {
-            //     // // this.setState({
-            //     // //     userName: userData.display_name,
-            //     // //     userImage: userData.images[0].url,
-            //     // })
-            //     userName = userData.display_name
-            //     userImage = userData.images[0].url
-            //     fetch(url +'users/' + userData.id + '/playlists', {
-            //         headers: { 'Authorization': 'Bearer '+ accessToken }
-            //     }).then(response => response.json())
-            //         .then(playlistData => {
-            //             playlistData.items.map((playlist) => {
-            //                 playListDataVar.playlistNames[playlist.name] = []
-            //                 playListDataVar.playlistImages.push(playlist.images[0])
-            //                 fetch(playlist.tracks.href, {
-            //                     headers: { 'Authorization': 'Bearer '+ accessToken }
-            //                 }).then(response => response.json())
-            //                     .then(tracks => {
-            //                         tracks.items.forEach(track => {
-            //                             playListDataVar.playlistNames[playlist.name].push(track.track.name)
-            //                             track.track.artists.forEach(artist => {
-            //                                 playListDataVar.artistNames.push(artist.name)
-            //                                 this.setState({playlistData: playListDataVar, userName: userName, userImage: userImage})
-            //                             })
-            //                         })
-            //                     })
-            //             })
-            //         })
-            // })
         }
     }
 
-    // searchText(e) {
-    //     let playlistsNames = this.state.playlistData.playlistNames
-    //     let loweredNames = Object.keys(playlistsNames)
-    //     let searchResult = loweredNames.filter(name => name.toLowerCase().includes(e.toLowerCase()))
-    //     this.setState({playlistData: {playlistNames: searchResult}})
-    // }
+    searchText(e) {
+        this.state.playlistData.filter(name => {
+            this.state.playlistData.name.toLowerCase().includes(e.toLowerCase())
+        })
+        this.setState({})
+    }
 
     render() {
         if(this.state.login) {
