@@ -1,31 +1,44 @@
 import React, { Component } from 'react'
-import Playlists from "../homepage/playlists";
 
 class Main extends Component {
-    constructor() {
-        super()
-        this.state = {
-            state: ''
-        }
-    }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
-        const url = 'https://api.spotify.com/v1/audio-analysis/'
-        fetch(url + nextProps.id, {
-            headers: { 'Authorization': 'Bearer '+ nextProps.token}
-        }).then(response => response.json())
-            .then((data) => {
-                console.log(data)
-            })
+    getTracks(keys, i) {
+        return(
+            <ul style={{'padding' : '0'}} className={'playlistTrack'}>
+                    {this.props.playlists.playlistNames[keys[i]].slice(0, 3).map((track, index) => {
+                        return (
+                            <li key={index} className={'firstLetterUppercase'}>{track[0].toLowerCase() + ' - ' + track[1]}</li>
+                        )
+                    })}
+            </ul>
+        )
     }
 
     render() {
-        return(
-            <div className={'mainSection'}>
-                <Playlists/>
-            </div>
-        )
+        if (this.props.playlists.playlistNames) {
+            const keys = Object.keys(this.props.playlists.playlistNames)
+            return (
+                <div className={'mainSection'}>
+                    <div className={'playlistsHolder'}>
+                        {this.props.playlists.playlistImages.map((image, i) => {
+                            return(
+                                <div className={'playlistHolder'} key={i}>
+                                    <h2 className={'playlistName'}>{keys[i]}</h2>
+                                    <img className={'playlistImage'} src={image.url}/>
+                                    {this.getTracks(keys, i)}
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            )
+        } else {
+            return(
+                <div className={'mainSection'}>
+                    Loading
+                </div>
+            )
+        }
     }
 }
 

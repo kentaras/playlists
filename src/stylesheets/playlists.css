@@ -5,7 +5,6 @@
     grid-template-rows: auto auto;
 }
 .playlist {
-    border: 1px solid red;
     width: 250px;
     height: 250px;
     border-radius: 5px;
