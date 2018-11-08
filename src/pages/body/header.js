@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SearchPlaylist from '../search/searchplaylist'
 
 class Header extends Component {
     constructor() {
@@ -7,11 +8,20 @@ class Header extends Component {
             searchRequest: ''
         }
     }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+
+    }
+
+    getSearchReq(e) {
+        this.props.searchWord(e)
+    }
+
     render() {
         if(this.props.name && this.props.image) {
             return(
                 <div className={'header'}>
-                    <input type={'text'} className={'searchBar'} placeholder={'Search'} onChange={(e) => this.props.searchText(e.target.value)} />
+                    <SearchPlaylist searchText={(e) => this.getSearchReq(e)}/>
                     <h3 className={'userName'}>{this.props.name}</h3>
                     <img src={this.props.image} className={'userImg'} />
                 </div>

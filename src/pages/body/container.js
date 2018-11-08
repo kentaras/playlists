@@ -80,10 +80,7 @@ class Container extends Component {
     }
 
     searchText(e) {
-        this.state.playlistData.filter(name => {
-            this.state.playlistData.name.toLowerCase().includes(e.toLowerCase())
-        })
-        this.setState({})
+        this.setState({searchRequest: e})
     }
 
     render() {
@@ -92,7 +89,7 @@ class Container extends Component {
         } else {
             return (
                 <div className="container">
-                    <Header name={this.state.userName} image={this.state.userImage} searchText={(e) => this.searchText(e)}/>
+                    <Header name={this.state.userName} image={this.state.userImage} searchWord={(e) => this.searchText(e)}/>
                     <Main playlists={this.state.playlistData} search={this.state.searchRequest}/>
                     <Footer/>
                 </div>

@@ -19,7 +19,20 @@ class Main extends Component {
             return (
                 <div className={'mainSection'}>
                     <div className={'playlistsHolder'}>
-                        {this.props.playlists.map((playlist, i) => {
+                        {this.props.search ?
+                            this.props.playlists.filter(playlists => {
+                                return playlists.name.toLowerCase().includes(this.props.search.toLowerCase())
+                            }).map((playlist, i) => {
+                                return(
+                                    <div className={'playlistHolder'} key={i}>
+                                        <h2 className={'playlistName'}>{playlist.name}</h2>
+                                        <img className={'playlistImage'} src={playlist.image}/>
+                                        {this.getTracks(playlist)}
+                                    </div>
+                                )
+                            })
+                            :
+                            this.props.playlists.map((playlist, i) => {
                             return(
                                 <div className={'playlistHolder'} key={i}>
                                     <h2 className={'playlistName'}>{playlist.name}</h2>
