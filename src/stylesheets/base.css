@@ -2,26 +2,32 @@
 /* ====================HEADER================= */
 .header {
     text-align: left;
-    display: grid;
-    grid-template-columns: 60% 25% 15%;
-    grid-template-rows: 30px;
     user-select: none;
     width: 100%;
     height: 30px;
     background-color: rgb(34, 102, 102);
-    padding: 5px;
+    padding: 5px 0;
     color: lightgrey;
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 2px;
     position: fixed;
 }
+.menuIcon {
+    float: left;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
 .searchBar {
+    display: inline;
+    float: left;
+    margin-left: 9%;
     border-radius: 50px;
     outline: none;
     border: none;
     padding: 4px 10px;
-    width: 75%;
-    place-self: end;
+    width: 50%;
     text-align: left;
     height: 23px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -47,16 +53,20 @@
     background-color: rgba(34, 102, 102, 0.3);
     color: slategrey;
 }
+.userInfo {
+    margin: 0 13% 0 0;
+}
 .userName {
-    align-self: center;
-    text-align: right;
+    display: inline;
+    float: right;
     margin: 0 2% 0 0;
     font-weight: 200;
 }
 .userImg {
+    display: inline;
+    float: right;
     width: 30px;
     height: 30px;
-    margin-right: 65%;
     transition: all 500ms;
 }
 /* ====================CONTENT================= */
@@ -113,7 +123,11 @@
     background-color: rgb(34, 102, 102);
     color: slategrey;
 }
-
+@media only screen and (max-width: 1000px) {
+    .searchBar {
+        width: 30%;
+    }
+}
 @media only screen and (max-width: 650px) {
     .playlistsHolder {
         padding: 3%;
@@ -140,16 +154,28 @@
         grid-template-rows: 50px;
     }
     .searchBar {
-        align-self: center;
         height: 40px;
     }
     .userImg, .userName {
         text-align: center;
-        align-self: center;
+    }
+    .userName {
+        width: 100px;
     }
     .userImg {
+        margin-top: 1%;
+    }
+    .userImg, .menuIcon {
         width: 40px;
         height: auto;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .userName {
+        visibility: hidden;
+    }
+    .searchBar {
+        width: 45%;
     }
 }
 @media only screen and (max-width: 450px) {

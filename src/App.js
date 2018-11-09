@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import Container from "./pages/body/container";
 import './stylesheets/App.css';
+import Container from "./pages/homepage/container";
 import Error from "./pages/error"
+import GetKey from "./services/getkey"
+import CreatePlaylist from "./pages/create/createplaylist";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Homepage from "./pages/homepage/homepage";
 
 class App extends Component {
   render() {
@@ -12,7 +15,9 @@ class App extends Component {
               <div>
                   <Switch>
                       <Route path="/" component={ Container } exact/>
-                      <Route path="/callback" component={ Container } exact/>
+                      <Route path="/home" component={ Homepage } exact/>
+                      <Route path="/callback" component={ GetKey } exact/>
+                      <Route path="/createplaylist" component={ CreatePlaylist } exact/>
                       <Route component={ Error } />
                   </Switch>
               </div>

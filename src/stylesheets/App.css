@@ -5,3 +5,8 @@
   margin: auto;
   overflow-x: hidden;
 }
+.loadPage {
+  margin-top: 5%;
+  width: 50%;
+  border-radius: 50%;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SearchPlaylist extends Component {
+class Search extends Component {
     render() {
         return(
             <input type={'text'} className={'searchBar'} placeholder={'Search'} onChange={(e) => this.props.searchText(e.target.value)} />
@@ -8,4 +8,4 @@ class SearchPlaylist extends Component {
     }
 }
 
-export default SearchPlaylist
+export default Search

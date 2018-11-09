@@ -1,0 +1,45 @@
+.menu {
+    position: fixed;
+    top: 40px;
+    width: 250px;
+    background-color: rgba(34, 102, 102, 0.95);
+    height: 100%;
+}
+.visible {
+    transition: margin 350ms;
+}
+.hidden {
+    margin-left: -250px;
+    transition: margin 350ms;
+}
+.menuItems {
+    margin: 20px 10px;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+.menuItem {
+    padding-left: 10px;
+    color: white;
+    font-size: 1.5em;
+    list-style-type: none;
+    border: 3px solid transparent;
+}
+.menuItem:hover {
+    border-left: 3px solid white;
+}
+
+@media only screen and (max-width: 600px) {
+    .menu {
+        top: 60px;
+    }
+    .visible {
+        width: 100%;
+        text-align: center;
+    }
+    .menuItem:hover {
+        border-left: 3px solid transparent;
+        font-weight: bold;
+    }
+}
