@@ -48,8 +48,8 @@ export default class {
         return eachPlaylistTrackDatas
     }
 
-    static async searchSongs(songName) {
-        let songsArray = await fetch(this.url + 'search?q='+songName+'&type=track', {
+    static async searchSongs(songName, limit=20) {
+        let songsArray = await fetch(this.url + 'search?q='+songName+'&type=track'+'&limit='+limit, {
             headers: { 'Authorization': 'Bearer ' + this.accessToken }
         }).then(response => response.json())
             .then(songs => {

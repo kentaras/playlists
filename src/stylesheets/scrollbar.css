@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+/*::-webkit-scrollbar-track-piece {*/
+    /*background: rgb(34, 102, 102);*/
+/*}*/
+::-webkit-scrollbar-thumb {
+    background: rgb(34, 102, 102);
+    /*border-radius: 50px;*/
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 102, 102, 0.9);
+}
