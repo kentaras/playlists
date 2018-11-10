@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import '../../stylesheets/searchbar.css'
 
-class Search extends Component {
+class SearchBar extends Component {
     render() {
         return(
             <input type={'text'} className={'searchBar'} placeholder={'Search'} onChange={(e) => this.props.searchText(e.target.value)} />
@@ -8,4 +9,4 @@ class Search extends Component {
     }
 }
 
-export default Search
+export default SearchBar

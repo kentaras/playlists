@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import '../../stylesheets/viewplaylists.css'
 import api from '../../services/api'
 import loadImage from '../../images/loading.gif'
+import SearchPlaylist from "./searchplaylist";
 
 class ViewPlaylists extends Component {
 
@@ -47,21 +49,10 @@ class ViewPlaylists extends Component {
                 </div>
             )
         } else {
-            console.log(this.props)
             return (
                 <div className={'playlistsHolder'}>
                     {this.props.search ?
-                        this.state.playlists.filter(playlists => {
-                            return playlists.name.toLowerCase().includes(this.props.search.toLowerCase())
-                        }).map((playlist, i) => {
-                            return (
-                                <div className={'playlistHolder'} key={i}>
-                                    <h2 className={'playlistName'}>{playlist.name}</h2>
-                                    <img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/>
-                                    {ViewPlaylists.getTracks(playlist)}
-                                </div>
-                            )
-                        })
+                        <SearchPlaylist playlists={this.state.playlists} search={this.props.search}/>
                         :
                         this.state.playlists.map((playlist, i) => {
                             return (

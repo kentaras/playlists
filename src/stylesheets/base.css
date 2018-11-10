@@ -19,40 +19,6 @@
     cursor: pointer;
     margin-left: 20px;
 }
-.searchBar {
-    display: inline;
-    float: left;
-    margin-left: 9%;
-    border-radius: 50px;
-    outline: none;
-    border: none;
-    padding: 4px 10px;
-    width: 50%;
-    text-align: left;
-    height: 23px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 1em;
-    background-color: rgba(255, 255, 255 , 0.3);
-    transition: all 500ms;
-}
-.searchBar::placeholder {
-    color: black;
-    transition: all 500ms;
-}
-.searchBar:focus {
-    background-color: rgba(255, 255, 255 , 0.9);
-    color: slategrey;
-    transition: all 500ms;
-}
-.searchBar:focus::placeholder {
-    transition: all 500ms;
-    color: slategrey;
-}
-.searchBar::selection {
-    background-color: rgba(34, 102, 102, 0.3);
-    color: slategrey;
-}
 .userInfo {
     margin: 0 13% 0 0;
 }
@@ -69,7 +35,9 @@
     height: 30px;
     transition: all 500ms;
 }
+
 /* ====================CONTENT================= */
+
 .mainSection {
     text-align: center;
     color: slategrey;
@@ -80,81 +48,30 @@
     width: 75%;
     margin: auto;
 }
-.playlistsHolder {
-    padding: 3%;
-    display: grid;
-    grid-template-columns: minmax(30%, 35%) minmax(30%, 35%) minmax(30%, 35%);
-    grid-column-gap: 1%;
-    grid-row-gap: 2%;
-}
-.playlistHolder {
-    display: grid;
-    grid-template-rows: 0.5fr 0.5fr 1fr;
-}
-.playlistName {
-    font-size: 1.25em;
-    height: 2.5em;
-    margin: 0;
-}
-.playlistImage {
-    margin: auto;
-    width: 150px;
-    height: auto;
-}
-.playlistTrack {
-    list-style: none;
-    word-break: break-word;
-}
-.firstLetterUppercase {
-    max-width: 85%;
-    margin: auto;
-    border-left: 1px dashed slategrey;
-    border-bottom: 1px dashed slategrey;
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
-}
-.firstLetterUppercase:first-letter {
-    text-transform: capitalize;
-}
+
 /* ====================FOOTER================= */
+
 .footer {
     width: 100%;
     height: 60px;
     background-color: rgb(34, 102, 102);
     color: slategrey;
 }
-@media only screen and (max-width: 1000px) {
-    .searchBar {
-        width: 30%;
-    }
-}
+
+/* ====================RESPONSIVE================= */
 @media only screen and (max-width: 650px) {
-    .playlistsHolder {
-        padding: 3%;
-        display: grid;
-        grid-template-columns: minmax(47%, 53%) minmax(47%, 53%);
-        grid-column-gap: 1%;
-        grid-row-gap: 2%;
-    }
     .mainSection {
-        text-align: center;
-        color: slategrey;
         min-height: 550px;
-        height: auto;
-        padding-top: 30px;
-        padding-bottom: 60px;
-        background-color: rgba(34, 102, 102, 0.1);
-        width: 75%;
-        margin: auto;
+        width: 100%;
     }
 }
 @media only screen and (max-width: 600px) {
+    .mainSection {
+        padding-top: 50px;
+    }
     .header {
         height: 50px;
         grid-template-rows: 50px;
-    }
-    .searchBar {
-        height: 40px;
     }
     .userImg, .userName {
         text-align: center;
@@ -174,25 +91,10 @@
     .userName {
         visibility: hidden;
     }
-    .searchBar {
-        width: 45%;
-    }
 }
 @media only screen and (max-width: 450px) {
-    .playlistsHolder {
-        padding: 3%;
-        display: grid;
-        grid-template-columns: auto;
-    }
     .mainSection {
-        text-align: center;
-        color: slategrey;
-        min-height: 550px;
         height: auto;
-        padding-top: 30px;
-        padding-bottom: 60px;
-        background-color: rgba(34, 102, 102, 0.1);
-        width: 75%;
-        margin: auto;
+        width: 100%;
     }
 }

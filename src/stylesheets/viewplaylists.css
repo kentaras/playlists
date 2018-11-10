@@ -1,0 +1,55 @@
+.playlistsHolder {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: minmax(30%, 35%) minmax(30%, 35%) minmax(30%, 35%);
+    grid-column-gap: 1%;
+    grid-row-gap: 2%;
+}
+.playlistHolder {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 1fr;
+}
+.playlistName {
+    font-size: 1.25em;
+    height: 2.5em;
+    margin: 0;
+}
+.playlistImage {
+    margin: auto;
+    width: 150px;
+    height: auto;
+}
+.playlistTrack {
+    list-style: none;
+    word-break: break-word;
+}
+.firstLetterUppercase {
+    max-width: 85%;
+    margin: auto;
+    border-left: 1px dashed slategrey;
+    border-bottom: 1px dashed slategrey;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+.firstLetterUppercase:first-letter {
+    text-transform: capitalize;
+}
+
+/* ====================RESPONSIVE================= */
+@media only screen and (max-width: 650px) {
+    .playlistsHolder {
+        padding: 3%;
+        display: grid;
+        grid-template-columns: minmax(47%, 53%) minmax(47%, 53%);
+        grid-column-gap: 1%;
+        grid-row-gap: 2%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .playlistsHolder {
+        padding: 3%;
+        display: grid;
+        grid-template-columns: 100%;
+        margin-bottom: 250px;
+    }
+}

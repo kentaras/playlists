@@ -47,36 +47,14 @@ export default class {
         })
         return eachPlaylistTrackDatas
     }
-}
 
-//         let playlists = playlistData.items
-//         let trackDataPromises = playlists.map(playlist => {
-//             let responsePromise = fetch(playlist.tracks.href, {
-//                 headers: {'Authorization': 'Bearer ' + accessToken}
-//             })
-//             let trackDataPromise = responsePromise
-//                 .then(response => response.json())
-//             return trackDataPromise
-//         })
-//         let allTracksData = Promise.all(trackDataPromises)
-//         let playlistsPromise = allTracksData.then(trackDatas => {
-//             trackDatas.forEach((trackData, i) => {
-//                 playlists[i].trackDatas = trackData.items
-//             })
-//             return playlists
-//         })
-//         return playlistsPromise
-//     })
-// }).then((playlistsArray) => {
-//     playlistsArray.map((playlist) => {
-//         let listPlay = {}
-//         listPlay.name = playlist.name
-//         listPlay.image = playlist.images[0].url
-//         listPlay.trackNames = []
-//         listPlay.artistNames = []
-//         playlist.trackDatas.map(trackData => {
-//             listPlay.trackNames.push(trackData.track.name)
-//             listPlay.artistNames.push(trackData.track.artists[0].name)
-//         })
-//         this.playlist.push(listPlay)
-//     })
+    static async searchSongs(songName) {
+        let songsArray = await fetch(this.url + 'search?q='+songName+'&type=track', {
+            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+        }).then(response => response.json())
+            .then(songs => {
+                return songs
+            })
+        return songsArray
+    }
+}
