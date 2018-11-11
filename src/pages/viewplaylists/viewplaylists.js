@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import '../../stylesheets/viewplaylists.css'
-import api from '../../services/api'
 import loadImage from '../../images/loading.gif'
 import SearchPlaylist from "./searchplaylist";
+import api from '../../services/api'
+import mongo from '../../services/mongoservice'
 
 class ViewPlaylists extends Component {
 
@@ -38,6 +39,10 @@ class ViewPlaylists extends Component {
                 })}
             </ul>
         )
+    }
+
+    postPlaylist() {
+        mongo.addPlaylist(this.state.playlists[0])
     }
 
     render() {

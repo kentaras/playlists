@@ -4,14 +4,25 @@ import help from '../../services/helperfunctions'
 class NewPlaylist extends Component {
     constructor() {
         super()
+        this.tracks = []
         this.state = {
-            playlistForDB: ''
+            prevProps: ''
         }
     }
 
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(this.state.prevProps !== nextProps.newSongs) {
+            nextProps.newSongs.forEach(track => {
+                this.tracks.push(track)
+            })
+            this.props.takeTracks(this.tracks)
+        }
+        this.setState({prevProps: nextProps.newSongs})
+    }
+
     deleteFromPlaylist(e) {
-        let playlistSongs = this.props.newSongs
+        let playlistSongs = this.tracks
         let sliced = playlistSongs.splice(e.target.id, 1)
         this.putBackToSongsFound(sliced)
         this.setState({newSongs: playlistSongs})
@@ -23,22 +34,18 @@ class NewPlaylist extends Component {
         this.props.foundSongsChange(foundSongsClone)
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({playlistForDB: nextProps.newSongs})
-    }
-
     render() {
         return(
             <div>
                 <h5>Songs in playlist:</h5>
                 <div className={'newPlaylistSongs'}>
-                    {this.state.playlistForDB.length > 0 ?
+                    {this.tracks.length > 0 ?
                         <ol className={'no-margin no-padding'}>
-                            {this.state.playlistForDB.map((song, i) => {
+                            {this.tracks.map((song, i) => {
                                 return (
                                     <li key={i} className={'casual'}>
                                         <p className={'songToAddName'}>{song.artists[0].name +' - '+song.name}</p>
-                                        <button className={'btn remove'} onClick={(e) => this.deleteFromPlaylist(e)} id={i}>x</button>
+                                        <button className={'remove'} onClick={(e) => this.deleteFromPlaylist(e)} id={i}>x</button>
                                         <hr className={'hr'}/>
                                     </li>
                                 )

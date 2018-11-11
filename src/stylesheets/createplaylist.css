@@ -30,6 +30,7 @@
     width: 82%;
     text-align: left;
     margin: auto;
+    transition: all 1s;
 }
 .predictiveText {
     font-size: 0.8em;
@@ -61,6 +62,10 @@
 }
 .songsToAdd:hover {
     font-weight: bold;
+}
+.addToPlaylist {
+    margin: 10px;
+    width: 80%;
 }
 .active {
     background-color: rgb(34, 102, 102);
@@ -108,9 +113,21 @@
 }
 .addPlaylist {
     margin-top: 100px;
+    width: 90%;
 }
 .btn {
-
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 8px;
+    outline: 0;
+    background-color: transparent;
+    border: 2px solid rgb(34, 102, 102);
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: rgb(34, 102, 102);
+    color: white;
 }
 .hr {
     width: 100%;

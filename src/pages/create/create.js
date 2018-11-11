@@ -20,7 +20,7 @@ class Create extends Component {
     render() {
         return(
             <div>
-                <Header searchWord={(e) => this.searchText(e)}/>
+                <Header searchBar={false} searchWord={(e) => this.searchText(e)}/>
                 <Main page={'createPlaylist'}/>
                 <Footer/>
             </div>

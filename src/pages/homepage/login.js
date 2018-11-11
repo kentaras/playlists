@@ -5,7 +5,6 @@ class Login extends Component {
 
     login() {
         window.location = 'http://localhost:8888/login'
-        console.log(window.location)
     }
 
     render() {

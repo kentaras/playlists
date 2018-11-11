@@ -18,7 +18,7 @@ class Homepage extends Component {
     render() {
         return(
             <div>
-                <Header searchWord={(e) => this.searchPlaylist(e)}/>
+                <Header searchBar={true} searchWord={(e) => this.searchPlaylist(e)}/>
                 <Main search={this.state.searchRequest} page={'homepage'}/>
                 <Footer/>
             </div>

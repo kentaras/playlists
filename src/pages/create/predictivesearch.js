@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import searchLoadImage from "../../images/searchloader.gif";
 import api from "../../services/api";
-import CreatePlaylist from "./createplaylist";
 
 class PredictiveSearch extends Component {
     constructor() {
@@ -38,7 +36,7 @@ class PredictiveSearch extends Component {
         return(
             <div className={'searchDiv'}>
                 <h5>Find A Song</h5>
-                <input className={'songSearchBar '} placeholder={'Enter song name'} onKeyPress={(e) => this.getSongs(e)} onChange={(e) => this.searchSongs(e)} />
+                <input className={'songSearchBar '} placeholder={'Enter song name or artist'} onKeyPress={(e) => this.getSongs(e)} onChange={(e) => this.searchSongs(e)} />
                 {this.state.predictiveSearch ?
                     <div className={'predictive'}>
                         <ul className={'no-margin no-padding'}>

@@ -55,13 +55,12 @@ class SongsFound extends Component {
     removeFromFound(e) {
         let foundSongs = help.cloneArray(this.props.foundSongs)
         for(let i=0; i<e.length; i++) {
-            foundSongs.tracks.items.map((item, index) => {
+            foundSongs.tracks.items.forEach((item, index) => {
                 if (item.name === e[i].name) {
                     foundSongs.tracks.items.splice(index, 1)
                 }
             })
         }
-        console.log(foundSongs.tracks.items.length)
         this.props.foundSongsChange(foundSongs)
     }
 
@@ -79,7 +78,7 @@ class SongsFound extends Component {
                             })}
                         </ul>
                     </div>
-                    <button className={'addToPlaylist'} onClick={() => this.addSongs(this.state.songsToAdd)}>Add songs</button>
+                    <button className={'btn addToPlaylist'} onClick={() => this.addSongs(this.state.songsToAdd)}>Add songs</button>
                 </div>
             )
         } else {

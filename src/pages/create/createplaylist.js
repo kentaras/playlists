@@ -12,9 +12,14 @@ class CreatePlaylist extends Component {
         super()
         this.state = {
             newSongs: '',
-            predictiveSearch: '',
-            foundSongs: ''
+            foundSongs: '',
+            playlistName: '',
+            tracksToDb: ''
         }
+    }
+
+    takeTracks(e) {
+        this.setState({tracksToDb: e})
     }
 
     render() {
@@ -26,7 +31,7 @@ class CreatePlaylist extends Component {
                     </div>
                     <div className={'newPlaylist'}>
                         <h5>Your new playlist name</h5>
-                        <input placeholder={'Enter playlist name'} className={'songSearchBar'} />
+                        <input onChange={(e) => this.setState({playlistName: e.target.value})} placeholder={'Enter playlist name'} className={'songSearchBar'} />
                     </div>
                     <div>
                         <SongsFound newSongs={(e) => this.setState({newSongs: e})}
@@ -35,9 +40,10 @@ class CreatePlaylist extends Component {
                     </div>
                         <NewPlaylist newSongs={this.state.newSongs}
                                      foundSongsChange={(e) => this.setState({foundSongs: e})}
-                                     foundSongs={this.state.foundSongs}/>
+                                     foundSongs={this.state.foundSongs}
+                                     takeTracks={(e) => this.takeTracks(e)}/>
                 </div>
-                <AddPlaylistToDb/>
+                <AddPlaylistToDb name={this.state.playlistName} tracks={this.state.tracksToDb}/>
             </div>
         )
     }

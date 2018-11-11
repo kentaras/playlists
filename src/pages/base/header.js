@@ -36,8 +36,8 @@ class Header extends Component {
             <div className={'header'}>
                 <MenuSideBar menu={this.state.menuVisible}/>
                 <img alt={'Menu'} onClick={(e) => this.toggleMenu(e)} className={'menuIcon'} src={menuIcon} />
-                <SearchBar searchText={(e) => this.getSearchReq(e)}/>
-                <div className={'userInfo'}>
+                {this.props.searchBar ? <SearchBar searchText={(e) => this.getSearchReq(e)}/> : ''}
+                    <div className={'userInfo'}>
                     <img alt={'User'} className={'userImg'} src={this.state.userImage}/>
                     <h3 className={'userName'}>{this.state.userName}</h3>
                 </div>
