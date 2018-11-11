@@ -1,11 +1,11 @@
-.btn {
+.btn-login {
     border-radius: 10%;
     outline: none;
     background-color: transparent;
     border: 2px solid slategrey;
     cursor: pointer;
 }
-.btn:hover {
+.btn-login:hover {
     box-shadow: 0 0 3px 5px slategrey;
 }
 .login {

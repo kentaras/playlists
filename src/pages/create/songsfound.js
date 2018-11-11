@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import help from '../../services/helperfunctions'
 
 class SongsFound extends Component {
     constructor() {
@@ -24,14 +25,14 @@ class SongsFound extends Component {
 
     isActive(e) {
         let active = document.getElementById(e)
-        if (!active) {
+        if (!active) { // Remove all highlights if added to newPlaylist
             this.resetActive()
-        } else if (active.className === 'songsToAdd') {
+        } else if (active.className === 'songsToAdd') { // Highlight if selected
             let idArray = e.split('-')
             let index = idArray[1]
             active.setAttribute('class', 'songsToAdd active')
             this.songsToAdd.push(this.props.foundSongs.tracks.items[index])
-        } else {
+        } else {    //Remove highlight if unselected
             let idArray = e.split('-')
             let index = idArray[1]
             active.setAttribute('class', 'songsToAdd')
@@ -48,6 +49,20 @@ class SongsFound extends Component {
         this.props.newSongs(e)
         this.setState({songsToAdd: ''})
         this.isActive(100)
+        this.removeFromFound(e) // Remove from SongsFound If added to newPlaylist
+    }
+
+    removeFromFound(e) {
+        let foundSongs = help.cloneArray(this.props.foundSongs)
+        for(let i=0; i<e.length; i++) {
+            foundSongs.tracks.items.map((item, index) => {
+                if (item.name === e[i].name) {
+                    foundSongs.tracks.items.splice(index, 1)
+                }
+            })
+        }
+        console.log(foundSongs.tracks.items.length)
+        this.props.foundSongsChange(foundSongs)
     }
 
     render() {

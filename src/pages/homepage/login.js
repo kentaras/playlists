@@ -11,7 +11,7 @@ class Login extends Component {
     render() {
         return(
             <div>
-                <button onClick={() => this.login()} className={'btn login'}>Login with Spotify</button>
+                <button onClick={() => this.login()} className={'btn-login login'}>Login with Spotify</button>
             </div>
         )
     }
