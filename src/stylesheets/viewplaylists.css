@@ -34,6 +34,28 @@
 .firstLetterUppercase:first-letter {
     text-transform: capitalize;
 }
+.pageNumbers-ul {
+    zoom: 0.7;
+    width: 65%;
+    font-size: 1.5em;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    user-select: none;
+}
+.pageNumbers {
+    display: inline;
+    margin: 0;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+}
+.pageActive {
+    font-weight: bold;
+    font-size: 1.5em;
+}
 
 /* ====================RESPONSIVE================= */
 @media only screen and (max-width: 650px) {

@@ -8,7 +8,7 @@ class MenuSideBar extends Component {
         return(
             <div className={'menu ' + this.props.menu}>
                 <ul className={'menuItems'}>
-                    <Link to={'/home'}><li className={'menuItem'}> View Playlists </li></Link>
+                    <Link to={'/playlists'}><li className={'menuItem'}> View Playlists </li></Link>
                     <Link to={'/createplaylist'}><li className={'menuItem'}> Create Playlist </li></Link>
                 </ul>
             </div>

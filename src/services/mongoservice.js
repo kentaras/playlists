@@ -17,6 +17,10 @@ export default class {
         })
     }
 
+    // static checkIfPlaylistsInDb() {
+    //     return fetch('http://localhost:8888/checkifindb')
+    // }
+
 
 }
 

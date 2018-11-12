@@ -7,7 +7,27 @@ class Homepage extends Component {
     constructor() {
         super()
         this.state = {
-            searchRequest: ''
+            searchRequest: '',
+            currentPage: ''
+        }
+    }
+
+    componentWillMount() {
+        let page = (this.props && this.props.match && this.props.match.params && this.props.match.params.page) || (this.props && this.props.match && this.props.match && this.props.match.path) || '';
+        if (page) {
+            if (page === '/playlists') {
+                page = 1
+                this.props.history.push('/playlists/1')
+                this.setState({currentPage: 1})
+            } else {
+                this.setState({currentPage: page})
+            }
+        }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(nextProps.match.params.page) {
+            this.setState({currentPage: nextProps.match.params.page})
         }
     }
 
@@ -19,7 +39,7 @@ class Homepage extends Component {
         return(
             <div>
                 <Header searchBar={true} searchWord={(e) => this.searchPlaylist(e)}/>
-                <Main search={this.state.searchRequest} page={'homepage'}/>
+                <Main search={this.state.searchRequest} currentPage={this.state.currentPage} page={'homepage'}/>
                 <Footer/>
             </div>
         )

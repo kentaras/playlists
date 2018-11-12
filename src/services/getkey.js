@@ -11,7 +11,7 @@ class GetKey extends Component {
         if(accessToken) {
             let toStorage = accessToken
             localStorage.setItem('access_token', toStorage)
-            this.props.history.push('/home')
+            this.props.history.push('/playlists')
             this.setState({ error: false })
         } else {
             this.setState({error: true})

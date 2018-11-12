@@ -6,7 +6,7 @@ class Main extends Component {
 
     getContent() {
         if(this.props.page === 'homepage') {
-            return <ViewPlaylists search={this.props.search}/>
+            return <ViewPlaylists currentPage={this.props.currentPage} search={this.props.search}/>
         } else if(this.props.page === 'createPlaylist') {
             return <CreatePlaylist search={this.props.search}/>
         }

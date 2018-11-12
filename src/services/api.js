@@ -8,6 +8,8 @@ export default class {
     }
     static accessToken = localStorage.getItem('access_token')
 
+    // Method to get user data from Spotify
+
     static async getUserData() {
         let userData = await fetch(this.url + 'me', {
             headers: {'Authorization': 'Bearer ' + this.accessToken}
@@ -18,18 +20,23 @@ export default class {
         return userData
     }
 
-    static async getPlaylistsData() {
-        let playlistsData = await fetch(this.url + 'me/playlists', {
+    // Method to get users playlist data
+
+    static async getPlaylistsData(limit=20, offset=0) {
+        let playlistsData = await fetch(this.url + 'me/playlists?limit='+limit+'&offset='+offset , {
             headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(playlistsData => {
-                return playlistsData.items
+                return playlistsData
             })
         return playlistsData
     }
 
-    static async getTracksData() {
-        let playlistsData = await this.getPlaylistsData()
+    // Method get tracks for playlists
+
+    static async getTracksData(limit = 20, offset = 0) {
+        let data = await this.getPlaylistsData(limit, offset)
+        let playlistsData = data.items
         let playlistTracks = await playlistsData.map(playlistData => {
             let responsePromise = fetch(playlistData.tracks.href, {
                 headers: {'Authorization': 'Bearer ' + this.accessToken}
@@ -48,6 +55,8 @@ export default class {
         return eachPlaylistTrackDatas
     }
 
+    // Method to search songs by name or artist
+
     static async searchSongs(songName, limit=20) {
         let songsArray = await fetch(this.url + 'search?q='+songName+'&type=track,artist&limit='+limit, {
             headers: { 'Authorization': 'Bearer ' + this.accessToken }
@@ -57,4 +66,8 @@ export default class {
             })
         return songsArray
     }
+
+
+
+
 }

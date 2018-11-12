@@ -4,41 +4,31 @@ import api from '../../services/api'
 import mongo from '../../services/mongoservice'
 
 class AddPlaylistToDb extends Component {
-    constructor() {
-        super()
-        this.state = {
-            playlist: {
-                name: '',
-                image: '',
-                owner: {
-                    display_name: '',
-                    href: '',
-                    id: '',
-                    type: 'user',
-                    uri: ''
-                },
-                public: true,
-                tracks: {},
-                type: 'playlist',
-            }
-        }
-    }
 
     async addToMongo() {
+        //TODO Redirect/Clear fields after save to DB
         const playlist = {}
-        playlist.name = this.props.name
-        if(this.props.tracks && this.props.tracks[0] && this.props.tracks[0].album && this.props.tracks[0].album.images && this.props.tracks[0].album.images[0] && this.props.tracks[0].album.images[0].url) {
-            playlist.image = this.props.tracks[0].album.images[0].url
-        } else {
-            playlist.image = noImage
-        }
-        playlist.tracks = this.props.tracks
-        playlist.public = true
-        playlist.type = 'playlist'
         let userInfo = await api.getUserData()
-        playlist.owner = userInfo
-        mongo.addPlaylist(playlist)
-
+        let date = new Date()
+        let ms = date.getTime()
+        if(!this.props.name) {  // Check if name is entered
+            window.alert('Enter playlist name!')
+        } else if (!this.props.tracks) { // Check if tracks are added
+            window.alert('Playlist must contain at least 1 song!')
+        } else { // Prepare data and post it to mongo
+            playlist.name = this.props.name
+            if (this.props.tracks && this.props.tracks[0] && this.props.tracks[0].album && this.props.tracks[0].album.images && this.props.tracks[0].album.images[0]) {
+                playlist.images = this.props.tracks[0].album.images
+            } else {
+                playlist.images = noImage
+            }
+            playlist.tracks = this.props.tracks
+            playlist.public = true
+            playlist.type = 'playlist'
+            playlist.owner = userInfo
+            playlist.id = ms
+            mongo.addPlaylist(playlist)
+        }
     }
 
     render() {

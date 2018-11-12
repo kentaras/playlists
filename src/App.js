@@ -15,7 +15,8 @@ class App extends Component {
               <div>
                   <Switch>
                       <Route path="/" component={ Container } exact/>
-                      <Route path="/home" component={ Homepage } exact/>
+                      <Route path="/playlists" component={ Homepage } exact/>
+                      <Route path="/playlists/:page" component={ Homepage } exact/>
                       <Route path="/callback" component={ GetKey } exact/>
                       <Route path="/createplaylist" component={ Create } exact/>
                       <Route component={ Error } />
