@@ -27,7 +27,7 @@ class AddPlaylistToDb extends Component {
             playlist.type = 'playlist'
             playlist.owner = userInfo
             playlist.id = ms
-            mongo.addPlaylist(playlist)
+            mongo.addPlaylist(playlist, userInfo.id)
         }
     }
 

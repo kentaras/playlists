@@ -3,8 +3,8 @@ export default class {
     // Method to add playlist to DB
 
     static addPlaylist(playlist) {
-        return fetch('http://localhost:8888/insertplaylist', {
-            method: 'POST',
+        return fetch('http://localhost:8888/insertplaylist/', {
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -17,9 +17,50 @@ export default class {
         })
     }
 
-    // static checkIfPlaylistsInDb() {
-    //     return fetch('http://localhost:8888/checkifindb')
-    // }
+    // Method to add many playlists to db
+
+    static addPlaylists(playlists) {
+        return fetch('http://localhost:8888/insertplaylists/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(playlists)
+        }).then(response => {
+            return response.json().then(data => {
+                return data
+            })
+        })
+    }
+
+    // Method to count users playlists
+
+    static getUserPlaylistsCount(userId) {
+        return fetch('http://localhost:8888/getuserplaylistscount/'+userId, {
+        }).then(response => {
+            return response.json().then(data => {
+                return data
+            })
+        })
+    }
+
+    // Method to get user playlists by id
+
+    static getPlaylistsByUserId(userId, quantity=9999, page=1) {
+        return fetch(`http://localhost:8888/getplaylistsforuser/${userId}/${quantity}/${page}`, {
+        }).then(response => {
+            return response.json().then(data => {
+                return data
+            })
+        })
+    }
+
+    static checkIfPlaylistsInDb() {
+        return fetch('http://localhost:8888/check', {
+
+        })
+    }
 
 
 }

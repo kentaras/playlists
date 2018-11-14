@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import loadGif from '../images/loader.gif'
 import queryString from "query-string";
 import Error from "../pages/error";
+import help from "./helperfunctions";
+import mongo from "./mongoservice";
 
 class GetKey extends Component {
 
@@ -11,11 +13,14 @@ class GetKey extends Component {
         if(accessToken) {
             let toStorage = accessToken
             localStorage.setItem('access_token', toStorage)
-            this.props.history.push('/playlists')
             this.setState({ error: false })
         } else {
             this.setState({error: true})
         }
+    }
+
+    componentDidMount() {
+        this.props.history.push('/playlists')
     }
 
     render() {

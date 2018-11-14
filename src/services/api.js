@@ -22,7 +22,7 @@ export default class {
 
     // Method to get users playlist data
 
-    static async getPlaylistsData(limit=20, offset=0) {
+    static async getPlaylistsData(limit=50, offset=0) {
         let playlistsData = await fetch(this.url + 'me/playlists?limit='+limit+'&offset='+offset , {
             headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
@@ -34,7 +34,7 @@ export default class {
 
     // Method get tracks for playlists
 
-    static async getTracksData(limit = 20, offset = 0) {
+    static async getTracksData(limit = 50, offset = 0) {
         let data = await this.getPlaylistsData(limit, offset)
         let playlistsData = data.items
         let playlistTracks = await playlistsData.map(playlistData => {

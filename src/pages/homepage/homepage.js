@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import Header from "../base/header";
 import Main from "../base/main";
 import Footer from "../base/footer";
+import api from "../../services/api";
+import mongo from "../../services/mongoservice";
 
 class Homepage extends Component {
     constructor() {
         super()
         this.state = {
             searchRequest: '',
-            currentPage: ''
+            currentPage: '',
+            userData: ''
         }
     }
 
