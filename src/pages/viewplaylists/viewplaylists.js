@@ -25,15 +25,7 @@ class ViewPlaylists extends Component {
     }
 
     componentWillMount() {
-        //TODO Soak playlists to DB when login first time
         this.renderPagePlaylists(this.props.currentPage)
-        // mongo.checkIfPlaylistsInDb()
-    }
-
-    insertPlaylistsToDb() {
-        let playlistsToPush = help.cloneArray(this.state.playlists)
-        let ownerId = playlistsToPush[0].owner.id
-        mongo.addPlaylist(this.state.playlists[1])
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -59,7 +51,6 @@ class ViewPlaylists extends Component {
     // }
 
     // PLAYLISTS FROM MONGO DB
-
     async renderPagePlaylists(e = 1) {
         this.setState({loading: true})
         let userData = await api.getUserData()
@@ -151,12 +142,12 @@ class ViewPlaylists extends Component {
                                 return (
                                     <div className={'playlistHolder'} key={i}>
                                         <h2 className={'playlistName'}>{playlist.name}</h2>
-                                        <img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/>
+                                        <Link to={{pathname: `/playlist/${playlist.id}`}}><img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/></Link>
                                         {ViewPlaylists.getTracks(playlist)}
                                     </div>
                                 )
-                            })}
-                        {/*<button className={'btn'} onClick={() => this.postPlaylist()}> Try </button>*/}
+                            })
+                        }
                     </div>
                     {!this.state.updated ? <button onClick={() => this.updatePlaylists()} className={'btn updatePlaylists'}> Update Playlists </button> : ''}
                     {this.makePaginationControl()}

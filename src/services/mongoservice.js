@@ -56,6 +56,15 @@ export default class {
         })
     }
 
+    static getPlaylistDataById(playlistId) {
+        return fetch(`http://localhost:8888/getplaylistdata/${playlistId}`, {
+        }).then(response => {
+            return response.json().then(data => {
+                return data
+            })
+        })
+    }
+
     static checkIfPlaylistsInDb() {
         return fetch('http://localhost:8888/check', {
 

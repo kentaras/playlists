@@ -1,0 +1,23 @@
+.playlistImage {
+    width: 100px;
+}
+.playlistTracks {
+    text-align: left;
+    margin: 0;
+}
+.playlistTrack {
+    margin-top: 5px;
+}
+.playlistName {
+    text-align: left;
+}
+a {
+    text-decoration: none;
+    color: slategrey;
+}
+.playlistGrid {
+    margin-top: 4%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

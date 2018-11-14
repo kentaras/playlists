@@ -6,6 +6,7 @@ import GetKey from "./services/getkey"
 import Create from "./pages/create/create";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from "./pages/homepage/homepage";
+import PlaylistInfo from "./pages/viewplaylists/viewplaylist/playlistinfo";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
                       <Route path="/" component={ Container } exact/>
                       <Route path="/playlists" component={ Homepage } exact/>
                       <Route path="/playlists/:page" component={ Homepage } exact/>
+                      <Route path="/playlist/:id" component={ PlaylistInfo } exact/>
                       <Route path="/callback" component={ GetKey } exact/>
                       <Route path="/createplaylist" component={ Create } exact/>
                       <Route component={ Error } />
