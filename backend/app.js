@@ -20,8 +20,8 @@ const bodyParser = require('body-parser');
 
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
 const client_secret = 'ddcb1c4af3384ca2a2a27b2d12393e2f'; // Your secret
-const redirect_uri = 'https://playlists-kentaraz355962.codeanyapp.com/callback'
-const redirect_uri_local = 'http://localhost:8888/callback'; // Your redirect uri
+// const redirect_uri = 'https://playlists-kentaraz355962.codeanyapp.com/callback'
+const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -128,7 +128,7 @@ app.get('/callback', function(req, res) {
                 });
 
                 // we can also pass the token to the browser to make requests from there
-                res.redirect('https://playlists-kentaraz355962.codeanyapp.com/callback?' || 'http://localhost:3000/callback?' +
+                res.redirect('http://localhost:3000/callback?' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token
@@ -194,7 +194,7 @@ app.post('/insertplaylists/', function (req, res) {
 
 // Get count of user playlists
 app.get('/getuserplaylistscount/:userid', function(req, res) {
-    userId = req.params.userid
+    let userId = req.params.userid
     db.collection('playlists').find({'owner.id': userId}).count(function(err, doc) {
         res.status(200)
         res.send(JSON.stringify(doc))
