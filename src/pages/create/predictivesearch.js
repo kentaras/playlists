@@ -10,17 +10,23 @@ class PredictiveSearch extends Component {
     }
 
     async getSongs(e) {
-        if(e.key === 'Enter') {
+        if(e.key === 'Enter' && this.props.page !== 'edit') {
             let songs = await api.searchSongs(e.target.value, 50)
             this.props.foundSongs(songs)
-            this.setState({ predictiveSearch: ''})
+            this.setState({predictiveSearch: ''})
         }
     }
 
     async getSongsFromSearch(songName) {
-        let songs = await api.searchSongs(songName, 50)
-        this.props.foundSongs(songs)
-        this.setState({ predictiveSearch: ''})
+        if(this.props.page !== 'edit') {
+            let songs = await api.searchSongs(songName, 50)
+            this.props.foundSongs(songs)
+            this.setState({predictiveSearch: ''})
+        } else {
+            let song = await api.searchSongs(songName, 1)
+            this.props.foundSong(song)
+            this.setState({predictiveSearch: ''})
+        }
     }
 
     async searchSongs(e) {
@@ -35,7 +41,7 @@ class PredictiveSearch extends Component {
     render() {
         return(
             <div className={'searchDiv'}>
-                <h5>Find A Song</h5>
+                {!this.props.page ? <h5>Find A Song</h5> : ''}
                 <input className={'songSearchBar '} placeholder={'Enter song name or artist'} onKeyPress={(e) => this.getSongs(e)} onChange={(e) => this.searchSongs(e)} />
                 {this.state.predictiveSearch ?
                     <div className={'predictive'}>

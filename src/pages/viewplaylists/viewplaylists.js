@@ -86,7 +86,7 @@ class ViewPlaylists extends Component {
             })
         })
         for (let i=0; i<playlistsData.length; i++) {
-            mongo.addPlaylist(playlistsData[i])
+            // mongo.getPlaylistBySearch(userId, searchWord)
         }
     }
 

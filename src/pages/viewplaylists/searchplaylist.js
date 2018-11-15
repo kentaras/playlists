@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ViewPlaylists from './viewplaylists'
-import api from '../../services/api'
 import Loading from "../base/loading";
+import api from '../../services/api'
+import mongo from '../../services/mongoservice'
 
 class SearchPlaylist extends Component {
     constructor() {
@@ -16,20 +17,24 @@ class SearchPlaylist extends Component {
         this.renderSearchPlaylists()
     }
 
+    // async renderSearchPlaylists() {
+    //     this.setState({loading: true})
+    //     let data = await api.getPlaylistsData()
+    //     this.playlistsData = data.items
+    //     // Make playlists have tracks inside
+    //     await api.getTracksData().then(tracks => {
+    //         tracks.forEach((playlistTracks, playlistIndex) => {
+    //             this.playlistsData[playlistIndex].tracks = []
+    //             playlistTracks.forEach(track => {
+    //                 this.playlistsData[playlistIndex].tracks.push(track.track)
+    //             })
+    //         })
+    //     })
+    //     this.setState({playlists: this.playlistsData, loading: false})
+    // }
+
     async renderSearchPlaylists() {
-        this.setState({loading: true})
-        let data = await api.getPlaylistsData()
-        this.playlistsData = data.items
-        // Make playlists have tracks inside
-        await api.getTracksData().then(tracks => {
-            tracks.forEach((playlistTracks, playlistIndex) => {
-                this.playlistsData[playlistIndex].tracks = []
-                playlistTracks.forEach(track => {
-                    this.playlistsData[playlistIndex].tracks.push(track.track)
-                })
-            })
-        })
-        this.setState({playlists: this.playlistsData, loading: false})
+
     }
 
     render() {

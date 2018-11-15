@@ -56,6 +56,8 @@ export default class {
         })
     }
 
+    // Get playlist data by playlist ID
+
     static getPlaylistDataById(playlistId) {
         return fetch(`http://localhost:8888/getplaylistdata/${playlistId}`, {
         }).then(response => {
@@ -65,9 +67,14 @@ export default class {
         })
     }
 
-    static checkIfPlaylistsInDb() {
-        return fetch('http://localhost:8888/check', {
+    // Get users playlistBySearchWord
 
+    static getPlaylistBySearch(userId, searchWord) {
+        return fetch(`http://localhost:8888/getplaylistbysearch/${userId}/${searchWord}`, {
+        }).then(response => {
+            return response.json().then(data => {
+                return data
+            })
         })
     }
 

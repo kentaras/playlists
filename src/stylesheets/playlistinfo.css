@@ -1,23 +1,85 @@
-.playlistImage {
-    width: 100px;
-}
-.playlistTracks {
-    text-align: left;
-    margin: 0;
-}
-.playlistTrack {
-    margin-top: 5px;
-}
-.playlistName {
-    text-align: left;
-}
-a {
-    text-decoration: none;
-    color: slategrey;
-}
 .playlistGrid {
     margin-top: 4%;
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
+}
+.viewPlaylistImage {
+    width: 300px;
+    margin: 5%;
+    border-radius: 5px;
+    /*box-shadow: 0 0 7px 8px rgb(34, 102, 102);*/
+}
+.editPlaylistName {
+    padding: 5px;
+    font-size: 1.2em;
+    color: slategrey;
+}
+.nameDiv {
+    text-align: center;
+    max-width: 300px;
+    padding: 50px;
+    margin-left: 12%;
+}
+.viewPlaylistName {
+    word-break: break-word;
+    text-align: center;
+    display: inline;
+}
+.editImage {
+    width: 15px;
+    margin-left: 2%;
+    display: inline;
+    cursor: pointer;
+}
+.tracksGrid {
+    margin-top: 1%;
+    margin-bottom: 15%;
+}
+.viewPlaylistTracks {
+    display: grid;
+    grid-template-columns: 90% 7%;
+    grid-column-gap: 3%;
+    margin-top: 2%;
+    text-align: left;
+}
+.tracks-ul {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+.viewPlaylistTrack {
+    display: inline-block;
+    margin-top: 5px;
+}
+.removeTrack {
+    border: none;
+    height: 30px;
+    background-color: transparent;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    color: rgb(155, 100, 100);
+    outline: none;
+    cursor: pointer;
+}
+.removeTrack:hover {
+    color: red;
+}
+a {
+    text-decoration: none;
+    color: slategrey;
+}
+
+@media only screen and (max-width: 800px) {
+    .playlistGrid {
+        grid-template-columns: 100%;
+    }
+    .songsHeader {
+        margin-top: 50px;
+    }
+    .viewPlaylistTracks {
+        text-align: center;
+        padding: 0;
+    }
 }
