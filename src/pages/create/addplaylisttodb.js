@@ -27,6 +27,7 @@ class AddPlaylistToDb extends Component {
             playlist.type = 'playlist'
             playlist.owner = userInfo
             playlist.id = String(ms)
+            playlist.searchName = this.props.name.toLowerCase()
             mongo.addPlaylist(playlist, userInfo.id)
         }
     }

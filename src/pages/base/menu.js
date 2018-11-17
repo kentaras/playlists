@@ -10,6 +10,7 @@ class MenuSideBar extends Component {
                 <ul className={'menuItems'}>
                     <Link to={'/playlists/1'}><li className={'menuItem'}> View Playlists </li></Link>
                     <Link to={'/createplaylist'}><li className={'menuItem'}> Create Playlist </li></Link>
+                    <Link to={'/listen'}><li className={'menuItem'}> Listen Music </li></Link>
                 </ul>
             </div>
         )

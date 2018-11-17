@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ViewPlaylists from "../viewplaylists/viewplaylists";
 import CreatePlaylist from "../create/createplaylist";
 import ShowPlaylist from "../viewplaylists/viewplaylist/showplaylist";
+import Player from "../listen/player";
 
 class Main extends Component {
 
@@ -12,6 +13,8 @@ class Main extends Component {
             return <CreatePlaylist search={this.props.search}/>
         } else if(this.props.page === 'playlist') {
             return <ShowPlaylist playlistData={this.props.playlistData}/>
+        } else if(this.props.page === 'listen') {
+            return(<Player/>)
         }
     }
 

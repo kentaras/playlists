@@ -34,7 +34,9 @@ class SearchPlaylist extends Component {
     // }
 
     async renderSearchPlaylists() {
-
+        this.setState({loading: true})
+        let playlists = await mongo.getPlaylistBySearch(this.props.userId, this.props.search)
+        this.setState({playlists: playlists, loading: false})
     }
 
     render() {

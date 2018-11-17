@@ -10,10 +10,6 @@ export default class {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(playlist)
-        }).then(response => {
-            return response.json().then(data => {
-                return data
-            })
         })
     }
 

@@ -14,10 +14,11 @@ class ViewPlaylists extends Component {
         super()
         this.playlists = ''
         this.count = ''
+        this.userId = ''
         this.state = {
             playlists: '',
             loading: true,
-            playlistsPerPage: 3,
+            playlistsPerPage: 9,
             playlistsTotal: '',
             playlistsInDB: true,
             updated: false
@@ -54,9 +55,9 @@ class ViewPlaylists extends Component {
     async renderPagePlaylists(e = 1) {
         this.setState({loading: true})
         let userData = await api.getUserData()
-        let userId = userData.id
-        this.playlists = await mongo.getPlaylistsByUserId(userId, this.state.playlistsPerPage, e)
-        this.count = await mongo.getUserPlaylistsCount(userId)
+        this.userId = userData.id
+        this.playlists = await mongo.getPlaylistsByUserId(this.userId, this.state.playlistsPerPage, e)
+        this.count = await mongo.getUserPlaylistsCount(this.userId)
         this.setState({playlistsTotal: this.count, playlists: this.playlists, loading: false})
     }
 
@@ -76,6 +77,10 @@ class ViewPlaylists extends Component {
         this.setState({updated: true})
         let data = await api.getPlaylistsData()
         let playlistsData = data.items
+        // put in name for search (lowercase)
+        playlistsData.forEach(playlist => {
+            playlist.searchName = playlist.name.toLowerCase()
+        })
         // Make playlists have tracks inside
         await api.getTracksData().then(tracks => {
             tracks.forEach((playlistTracks, playlistIndex) => {
@@ -85,9 +90,14 @@ class ViewPlaylists extends Component {
                 })
             })
         })
-        for (let i=0; i<playlistsData.length; i++) {
-            // mongo.getPlaylistBySearch(userId, searchWord)
-        }
+        this.insertPlaylists(playlistsData)
+    }
+
+    insertPlaylists(playlistsData) {
+        playlistsData.forEach(playlist => {
+            console.log(playlist)
+            mongo.addPlaylist(playlist)
+        })
     }
 
     makePaginationControl() {
@@ -97,13 +107,13 @@ class ViewPlaylists extends Component {
         }
         let pagesBefore = []
         let pagesAfter = []
-        if(this.props.currentPage < 4) {
+        if(this.props.currentPage < 5) {
             pageNumbers = pageNumbers.splice(0, 5)
-        } else if (this.props.currentPage > 3 && this.props.currentPage < pageNumbers.length-1) {
+        } else if (this.props.currentPage > 5 && this.props.currentPage < pageNumbers.length-1) {
             pagesBefore = pageNumbers.slice(this.props.currentPage-3, this.props.currentPage)
             pagesAfter = pageNumbers.slice(this.props.currentPage, this.props.currentPage+2)
             pageNumbers = pagesBefore.concat(pagesAfter)
-        } else if (this.props.currentPage > 3 && this.props.currentPage < pageNumbers.length - 3) {
+        } else if (this.props.currentPage > 6 && this.props.currentPage < pageNumbers.length - 3) {
             pagesBefore = pageNumbers.slice(this.props.currentPage-2, this.props.currentPage)
             pagesAfter = pageNumbers.splice(this.props.currentPage, 10)
             pageNumbers = pagesBefore.concat(pagesAfter)
@@ -136,7 +146,7 @@ class ViewPlaylists extends Component {
                 <div>
                     <div className={'playlistsHolder'}>
                         {this.props.search ?
-                            <SearchPlaylist playlists={this.state.playlists} search={this.props.search}/>
+                            <SearchPlaylist userId={this.userId} playlists={this.state.playlists} search={this.props.search}/>
                             :
                             this.state.playlists.map((playlist, i) => {
                                 return (

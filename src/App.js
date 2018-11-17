@@ -7,6 +7,7 @@ import Create from "./pages/create/create";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from "./pages/homepage/homepage";
 import PlaylistInfo from "./pages/viewplaylists/viewplaylist/playlistinfo";
+import Listen from "./pages/listen/listen";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
                       <Route path="/playlist/:id" component={ PlaylistInfo } exact/>
                       <Route path="/callback" component={ GetKey } exact/>
                       <Route path="/createplaylist" component={ Create } exact/>
+                      <Route path="/listen" component={ Listen } exact/>
                       <Route component={ Error } />
                   </Switch>
               </div>

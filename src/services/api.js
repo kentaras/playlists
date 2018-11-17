@@ -67,7 +67,87 @@ export default class {
         return songsArray
     }
 
+    // Method to get device ID
+
+    static async getDeviceId() {
+        let deviceId = await fetch(this.url + 'me/player/devices', {
+            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+        }).then(response => response.json())
+            .then(device => {
+                return device
+            })
+        return deviceId
+    }
+
+    static async getCurrentPlaybackInfo() {
+        let currentInfo = await fetch(this.url + 'me/player', {
+            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+        }).then(response => response.json())
+            .then(device => {
+                return device
+            })
+        return currentInfo
+    }
+
+    static async getRecentListenedTracks() {
+            let recentlyPlayed = await fetch(this.url + 'me/player/recently-played', {
+                headers: { 'Authorization': 'Bearer ' + this.accessToken }
+            }).then(response => response.json())
+                .then(device => {
+                    return device
+                })
+        return recentlyPlayed
+    }
+
+    static async playPausePlayer() {
+        fetch('https://api.spotify.com/v1/melody/v1/check_scope?scope=web-playback', {
+            headers: { 'Authorization': 'Bearer ' + this.accessToken },
+        })
+    }
+
+    static async playSong(songUri, deviceId) {
+        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+            method: 'PUT',
+            body: JSON.stringify({uris: [songUri]}),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.accessToken}`
+            },
+        })
+    }
+
+    static seekPosition(position_ms) { // Change playback position
+        fetch(this.url + `me/player/seek?position_ms=${position_ms}`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+        }).then(response => console.log(response))
+    }
+
+    static playNext() { // Play next track
+        fetch(this.url + 'me/player/next', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+        }).then(response => console.log(response))
+    }
+
+    static playPrevious() { // Play previous track
+        fetch(this.url + 'me/player/previous', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+        }).then(response => console.log(response))
+    }
 
 
+
+    // static async play() {
+    //     fetch(this.url + 'me/player/play', {
+    //         method: 'PUT',
+    //         headers: { 'Authorization': 'Bearer ' + this.accessToken },
+    //         body:
+    //     }).then(response => response.json())
+    //         .then(res => {
+    //             return res
+    //         })
+    // }
 
 }

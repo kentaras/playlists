@@ -16,6 +16,8 @@ let db = null;
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bodyParser = require('body-parser');
+
+
 // const api = require('../src/services/api')
 
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
@@ -70,7 +72,7 @@ app.get('/login', function(req, res) {
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'user-read-private user-read-email';
+    var scope = 'streaming web-playback user-read-birthdate user-read-playback-state user-read-currently-playing user-modify-playback-state user-read-private user-read-email playlist-read-private playlist-modify-public app-remote-control user-follow-modify user-follow-read user-top-read user-read-recently-played user-library-read user-library-modify';
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
@@ -174,11 +176,9 @@ app.get('/refresh_token', function(req, res) {
 
 app.put('/insertplaylist/', function (req, res) {
     delete req.body._id
-    let queryUpdate = db.collection('playlists').update({ id: req.body.id }, req.body, {upsert: true})
+    let queryUpdate = db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
     // let queryInsert = db.collection('playlists').insertOne(req.body)
-    queryUpdate.then((res, err) => {
-        console.log('success')
-    })
+    queryUpdate
 })
 
 // Insert many playlists to DB
@@ -223,11 +223,16 @@ app.get('/getplaylistdata/:playlistid', function(req, res) {
     })
 })
 
-// app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
-//     let userId = req.params.userid
-//     let searchWord = req.params.searchword
-//     db.collection('playlists').find({'owner.id': userId, name: new Regexp(searchWord)})
-// })
+app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
+    let userId = req.params.userid
+    let searchWord = (req.params.searchword).toLowerCase()
+    console.log(searchWord)
+    db.collection('playlists').find({'owner.id': userId, 'searchName': new RegExp(searchWord)}).toArray(function(err, docs) {
+        console.log(docs)
+        res.status(200)
+        res.send(JSON.stringify(docs))
+    })
+})
 
 // Method to check if users Spotify playlists are already in DB
 // app.get('/check', async function(req, res) {
