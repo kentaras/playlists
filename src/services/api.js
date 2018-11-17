@@ -130,11 +130,32 @@ export default class {
         }).then(response => console.log(response))
     }
 
-    static playPrevious() { // Play previous track
-        fetch(this.url + 'me/player/previous', {
-            method: 'POST',
+    static shuffle(state) { // Toggle shuffle
+        fetch(this.url + `me/player/shuffle?state=${state}`, {
+            method: 'PUT',
             headers: { 'Authorization': `Bearer ${this.accessToken}` }
         }).then(response => console.log(response))
+    }
+
+    static random(state) { // Toggle shuffle
+        fetch(this.url + `me/player/random?state=${state}`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+        }).then(response => console.log(response))
+    }
+
+    static transferPlaybackHere(deviceId) {
+        fetch("https://api.spotify.com/v1/me/player", {
+            method: "PUT",
+            headers: {
+                'Authorization': 'Bearer ' + this.accessToken,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "device_ids": [ deviceId ],
+                "pause": true,
+            }),
+        })
     }
 
 

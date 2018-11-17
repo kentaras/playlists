@@ -2,3 +2,69 @@
 .playerWindow {
     padding: 2%;
 }
+.player {
+    color: rgba(255, 0, 0, 0.5);
+    user-select: none;
+    width: 600px;
+    height: 350px;
+    margin: 50px auto auto auto;
+    background-image: linear-gradient(150deg, rgb(14, 14, 14), rgb(34, 24, 24));
+    border-radius: 50px;
+    border: 4px double rgb(94, 24, 14);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: left;
+}
+.playerName {
+    letter-spacing: 3px;
+    padding: 2px;
+    margin: 0 0 0 10%;
+    color: rgba(255, 0, 0, 0.8);
+}
+.currentSong {
+    margin-left: 10px;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+.currentSong > p {
+    margin-top: 10%;
+    text-align: center;
+}
+.currentSong > marquee {
+    margin-top: 3%;
+    background-color: rgb(15, 15, 15);
+    font-size: 1.2em;
+    box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+}
+.trackTime {
+    margin-top: 70px;
+    font-size: 3em;
+    background-color: rgb(15, 15, 15);
+    letter-spacing: 5px;
+    box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+}
+.songInfo {
+    text-align: center;
+    padding: 5px;
+}
+.songInfo > img {
+    width: 130px;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 5%;
+    box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+}
+.songInfoText {
+    width: 80%;
+    background-color: rgb(15, 15, 15);
+    margin: 5% auto;
+    height: 150px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+}
+/*========================MEDIA=======================*/
+@media only screen and (max-width: 850px) {
+    .player {
+        width: 95%;
+    }
+}
