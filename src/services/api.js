@@ -89,30 +89,9 @@ export default class {
         return currentInfo
     }
 
-    static async getRecentListenedTracks() {
-            let recentlyPlayed = await fetch(this.url + 'me/player/recently-played', {
-                headers: { 'Authorization': 'Bearer ' + this.accessToken }
-            }).then(response => response.json())
-                .then(device => {
-                    return device
-                })
-        return recentlyPlayed
-    }
-
     static async playPausePlayer() {
         fetch('https://api.spotify.com/v1/melody/v1/check_scope?scope=web-playback', {
-            headers: { 'Authorization': 'Bearer ' + this.accessToken },
-        })
-    }
-
-    static async playSong(songUri, deviceId) {
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
-            method: 'PUT',
-            body: JSON.stringify({uris: [songUri]}),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.accessToken}`
-            },
+            headers: {'Authorization': 'Bearer ' + this.accessToken},
         })
     }
 
@@ -137,10 +116,12 @@ export default class {
         })
     }
 
-    static random(state) { // Toggle shuffle
-        fetch(this.url + 'me/player/repeat?state=' + state, {
+    static repeat(state) { // Toggle Repeat
+        fetch(this.url + 'me/player/repeat', {
             method: 'PUT',
-            headers: { 'Authorization': 'Bearer' + this.accessToken }
+            headers: { 'Authorization': 'Bearer' + this.accessToken,
+                        "Accept": "application/json"},
+            body: JSON.stringify(state)
         }).then(response => console.log(response))
     }
 
@@ -158,6 +139,29 @@ export default class {
         })
     }
 
+    // Take playlist
+    // static async getCurrentPlaylist(url) {
+    //     let currentPlaylist = await fetch(this.url + 'me/player/recently-played', {
+    //         headers: { 'Authorization': 'Bearer ' + this.accessToken }
+    //     }).then(response => response.json())
+    //         .then(device => {
+    //             return device
+    //         })
+    //     return currentPlaylist
+    // }
+
+    // Play song from playlist
+
+    static async playSong(songUri, position) {
+        fetch(`https://api.spotify.com/v1/me/player/play`, {
+            method: 'PUT',
+            body: JSON.stringify({context_uris: [songUri]}, {position: 0}),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.accessToken}`
+            },
+        })
+    }
 
 
     // static async play() {

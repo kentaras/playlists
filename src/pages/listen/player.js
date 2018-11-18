@@ -7,6 +7,8 @@ import playButton from '../../images/play.png'
 import pauseButton from '../../images/pause.png'
 import shuffleButtonOff from '../../images/shuffle.png'
 import shuffleButtonOn from '../../images/shuffleOn.png'
+import arrowDownImg from '../../images/arow-down.png'
+import arrowUpImg from '../../images/arrow-up.png'
 import nextButton from '../../images/next.png'
 import previousButton from '../../images/previous.png'
 import InputRange from 'react-input-range'
@@ -15,6 +17,7 @@ import repeatAllButton from '../../images/repeatAll.png'
 import repeatOneButton from '../../images/repeatOne.png'
 import Loading from "../base/loading";
 import VolumeControl from "./volumecontrol";
+import PlayerContext from "./playercontext";
 
 class Player extends Component {
     constructor(props) {
@@ -38,7 +41,9 @@ class Player extends Component {
             trackImage: '',
             trackAlbum: '',
             volume: '',
-            loading: true
+            loading: true,
+            showContext: '',
+            context: ''
         }
     }
 
@@ -84,7 +89,8 @@ class Player extends Component {
                     rangeStep: state.duration/100,
                     trackImage: state.track_window.current_track.album.images[0].url,
                     trackAlbum: state.track_window.current_track.album.name,
-                    loading: false
+                    loading: false,
+                    context: state
                 })
             }
 
@@ -187,10 +193,50 @@ class Player extends Component {
         this.player.seek(newPosition)
         this.setState({inputRangeValue: newPosition})
     }
+
+    togglePlayerContext() {
+        console.log(this.state.showContext)
+        if(this.state.showContext) {
+            this.setState({showContext: ''})
+        } else {
+            this.setState({showContext: 'show'})
+        }
+    }
+
+    getArrowButtonValue() {
+        if(this.state.showContext) {
+            return <img className={'buttonImage'} src={arrowUpImg} />
+        } else {
+            return <img className={'buttonImage'} src={arrowDownImg} />
+        }
+    }
+
     // async getCurrentSongName() {
     //     if(this.state.deviceId) {
     //         let currentSong = await this.player.getCurrentState()
     //         console.log(currentSong)
+    //     }
+    // }
+
+    // playerToggleRepeat() {
+    //     if(this.state.repeat === 'off') {
+    //         this.setState({repeat: 'track'})
+    //     } else if (this.state.repeat === 'track') {
+    //         this.setState({repeat: 'context'})
+    //     } else if (this.state.repeat === 'context') {
+    //         this.setState({repeat: 'off'})
+    //     }
+    //     api.repeat(this.state.repeat)
+    //     console.log(this.state.repeat)
+    // }
+    //
+    // getRepeatButtonValue() {
+    //     if(this.state.repeat === 'off') {
+    //         return <img className={'buttonImage'} src={repeatOffButton}/>
+    //     } else if(this.state.repeat === 'track') {
+    //         return <img className={'buttonImage'} src={repeatOneButton}/>
+    //     } else if(this.state.repeat === 'context') {
+    //         return <img className={'buttonImage'} src={repeatAllButton}/>
     //     }
     // }
 
@@ -237,7 +283,11 @@ class Player extends Component {
                             {!this.state.trackImage ? <img src={noImage}/> : <img src={this.state.trackImage}/>}
                             <p className={'songInfoText'}> {this.state.trackAlbum}</p>
                             <VolumeControl volume={this.state.volume} changeVolume={(e) => this.playerSetVolume(e)}/>
+                            <button className={'playerButton arrow'} onClick={() => this.togglePlayerContext()}>{this.getArrowButtonValue()}</button>
                         </div>
+                    </div>
+                    <div className={'player player-playlists '+this.state.showContext}>
+                        <PlayerContext deviceId={this.state.deviceId} context={this.state.context}/>
                     </div>
                 </div>
             )
@@ -246,27 +296,3 @@ class Player extends Component {
 }
 
 export default Player
-
-
-
-// playerToggleRepeat() {
-//     if(this.state.repeat === 'off') {
-//         this.setState({repeat: 'track'})
-//     } else if (this.state.repeat === 'track') {
-//         this.setState({repeat: 'context'})
-//     } else if (this.state.repeat === 'context') {
-//         this.setState({repeat: 'off'})
-//     }
-//     api.random(this.state.repeat)
-//     console.log(this.state.repeat)
-// }
-//
-// getRepeatButtonValue() {
-//     if(this.state.repeat === 'off') {
-//         return <img className={'buttonImage'} src={repeatOffButton}/>
-//     } else if(this.state.repeat === 'track') {
-//         return <img className={'buttonImage'} src={repeatOneButton}/>
-//     } else if(this.state.repeat === 'context') {
-//         return <img className={'buttonImage'} src={repeatAllButton}/>
-//     }
-// }
