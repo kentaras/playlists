@@ -134,13 +134,13 @@ export default class {
         fetch(this.url + `me/player/shuffle?state=${state}`, {
             method: 'PUT',
             headers: { 'Authorization': `Bearer ${this.accessToken}` }
-        }).then(response => console.log(response))
+        })
     }
 
     static random(state) { // Toggle shuffle
-        fetch(this.url + `me/player/random?state=${state}`, {
+        fetch(this.url + 'me/player/repeat?state=' + state, {
             method: 'PUT',
-            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+            headers: { 'Authorization': 'Bearer' + this.accessToken }
         }).then(response => console.log(response))
     }
 

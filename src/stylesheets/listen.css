@@ -3,7 +3,7 @@
     padding: 2%;
 }
 .player {
-    color: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.6);
     user-select: none;
     width: 600px;
     height: 350px;
@@ -14,12 +14,6 @@
     display: grid;
     grid-template-columns: 50% 50%;
     text-align: left;
-}
-.playerName {
-    letter-spacing: 3px;
-    padding: 2px;
-    margin: 0 0 0 10%;
-    color: rgba(255, 0, 0, 0.8);
 }
 .currentSong {
     margin-left: 10px;
@@ -35,9 +29,12 @@
     background-color: rgb(15, 15, 15);
     font-size: 1.2em;
     box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+    height: 30px;
+    color: red;
 }
 .trackTime {
     margin-top: 70px;
+    margin-bottom: 20px;
     font-size: 3em;
     background-color: rgb(15, 15, 15);
     letter-spacing: 5px;
@@ -58,13 +55,42 @@
     width: 80%;
     background-color: rgb(15, 15, 15);
     margin: 5% auto;
-    height: 150px;
+    height: 45px;
     overflow: hidden;
     box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+}
+.buttonImage {
+    width: 40px;
+    height: 40px;
+}
+.playerButtons {
+    box-shadow: 0 0 10px 10px rgb(15, 15, 15);
+    background-color: rgb(15, 15, 15);
+    text-align: center;
+}
+.playerButton {
+background-color: rgb(15, 15, 15);
+border: none;
+outline: none;
+margin-left: 2px;
+}
+.slider {
+    margin-top: 5%;
+}
+.playerLoader {
+    margin: 15% auto;
+    width: 200px;
+    height: auto;
 }
 /*========================MEDIA=======================*/
 @media only screen and (max-width: 850px) {
     .player {
         width: 95%;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .player {
+        grid-template-columns: 90%;
+        height: 700px;
     }
 }
