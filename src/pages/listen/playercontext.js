@@ -37,7 +37,7 @@ class PlayerContext extends Component {
                             // console.log(song)
                             return (
                                 <li key={i} className={'songInList'} onClick={() => this.playSong(i)}>
-                                    <img className={'buttonImage imgRight'} src={song.track.album.images[0].url}/>
+                                    <img className={'buttonImage imgLeft'} src={song.track.album.images[0].url}/>
                                     {song.track.artists[0].name+' - '+song.track.name}
                                 </li>
                             )
