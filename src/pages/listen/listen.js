@@ -8,7 +8,7 @@ class Listen extends Component {
         return(
             <div>
                 <Header searchBar={false}/>
-                <Main page={'listen'}/>
+                <Main page={'listen'} playlistId={this.props.match.params.playlistId}/>
                 <Footer/>
             </div>
         )

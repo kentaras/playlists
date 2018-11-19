@@ -14,7 +14,7 @@ class Main extends Component {
         } else if(this.props.page === 'playlist') {
             return <ShowPlaylist playlistData={this.props.playlistData}/>
         } else if(this.props.page === 'listen') {
-            return(<Player/>)
+            return(<Player playlistId={this.props.playlistId}/>)
         }
     }
 

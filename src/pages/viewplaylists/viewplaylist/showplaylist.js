@@ -5,6 +5,7 @@ import help from '../../../services/helperfunctions'
 import mongo from '../../../services/mongoservice'
 import editImg from '../../../images/edit.png'
 import saveImg from '../../../images/save.png'
+import { Link } from "react-router-dom";
 
 class ShowPlaylist extends Component {
     constructor() {
@@ -70,7 +71,7 @@ class ShowPlaylist extends Component {
                     <div className={'infoGrid'}>
                         <img className={'viewPlaylistImage'} src={this.state.playlist.images[0].url} alt={this.state.playlist.name}/>
                             {this.getPlaylistName()}
-                        {this.state.playlist.uri ? <a href={this.state.playlist.uri}> LISTEN ON SPOTIFY </a> : ''}
+                        {this.state.playlist.uri ? <Link to={'/listen/'+this.state.playlist.id}> LISTEN ON SPOTIFY </Link> : ''}
                     </div>
                     <div>
                         <div className={'tracksGrid'}>

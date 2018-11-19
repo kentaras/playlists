@@ -125,8 +125,8 @@ export default class {
         }).then(response => console.log(response))
     }
 
-    static transferPlaybackHere(deviceId) {
-        fetch("https://api.spotify.com/v1/me/player", {
+    static async transferPlaybackHere(deviceId) {
+        await fetch("https://api.spotify.com/v1/me/player", {
             method: "PUT",
             headers: {
                 'Authorization': 'Bearer ' + this.accessToken,
@@ -153,15 +153,30 @@ export default class {
     // Play song from playlist
 
     static async playSong(songUri, position) {
-        fetch(`https://api.spotify.com/v1/me/player/play`, {
+        fetch(this.url + 'me/player/play', {
             method: 'PUT',
-            body: JSON.stringify({context_uris: [songUri]}, {position: 0}),
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.accessToken}`
+                'Authorization': `Bearer ${this.accessToken}`,
+                "Content-Type": "application/json",
             },
+            body: JSON.stringify({
+                'context_uri': songUri,
+                'offset': {'position': position}
+            })
         })
     }
+    static async getPlaylistById(playlistId) {
+        let playlistData = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+        }).then(response => response.json())
+            .then(playlistData => {
+                return playlistData
+            })
+        return playlistData
+    }
+
+    // Get playlist by ID
 
 
     // static async play() {

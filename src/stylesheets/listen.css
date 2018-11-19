@@ -88,8 +88,9 @@ margin-left: 2px;
     margin-top: -30px;
     background-color: transparent;
 }
-/*========================PLAYLISTS===================*/
+/*========================PLAYLIST===================*/
 .player-playlists {
+    display: block;
     background-color: rgb(15,15,15);
     height: 0;
     transition: all 500ms;
@@ -105,6 +106,34 @@ margin-left: 2px;
     border-top: none;
     border: 4px double rgb(94, 24, 14);
     transition: all 500ms;
+}
+.songList {
+    width: 100%;
+    margin: 0;
+    padding: 5px 3%;
+    border-bottom: 2px solid rgb(94, 24, 14);
+    height: 300px;
+    overflow: scroll;
+}
+.songInList {
+    list-style-type: none;
+    font-size: 1.5em;
+    height: 70px;
+    max-height: 70px;
+    overflow: hidden;
+    margin: 10px 3% 0 0;
+}
+.songInList:hover {
+    color: rgb(200, 0, 0);
+    background-color: rgb(24, 24, 24);
+}
+.playerPlaylistName {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.imgRight {
+    float:left;
+    margin-right: 20px;
 }
 /*========================MEDIA=======================*/
 @media only screen and (max-width: 850px) {

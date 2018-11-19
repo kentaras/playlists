@@ -43,12 +43,18 @@ class Player extends Component {
             volume: '',
             loading: true,
             showContext: '',
-            context: ''
+            context: '',
+            linkedFromPlaylist: false
         }
     }
 
     componentDidMount () {
         this.interval = setInterval(() => this.checkForPlayer(), 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
+        this.player.disconnect()
     }
 
     checkForPlayer() {
@@ -97,28 +103,32 @@ class Player extends Component {
         });
 
         // Ready
-        this.player.on('ready', data => {
+        this.player.on('ready', async data => {
             let { device_id } = data;
             console.log("Let the music play on!");
             this.playerGetVolume()
             this.setState({ deviceId: device_id });
             this.playHere(this.state.deviceId)
-            // this.getCurrentSongName()
         });
     }
 
     playerControl(action) {
-        switch(action) {
-            case('play/pause'):
-                this.player.togglePlay()
-                break
-            case('next'):
-                this.player.nextTrack()
-                break
-            case('previous'):
-                this.player.previousTrack()
-                break
-            default:
+        if(this.props.playlistId && !this.state.linkedFromPlaylist) {
+            api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 1)
+            this.setState({linkedFromPlaylist: true})
+        } else {
+            switch (action) {
+                case('play/pause'):
+                    this.player.togglePlay()
+                    break
+                case('next'):
+                    this.player.nextTrack()
+                    break
+                case('previous'):
+                    this.player.previousTrack()
+                    break
+                default:
+            }
         }
 
     }
@@ -139,6 +149,7 @@ class Player extends Component {
     playHere(device) { // Transfer playback from other device
         api.transferPlaybackHere(device)
     }
+
 
     getPlayButtonValue() {
         if(this.state.pauseButtonValue) {
@@ -187,15 +198,12 @@ class Player extends Component {
     }
 
     changePosition(value) {
-        console.log(value)
         let newPosition = this.state.rangeStep*value
-        console.log(newPosition)
         this.player.seek(newPosition)
         this.setState({inputRangeValue: newPosition})
     }
 
     togglePlayerContext() {
-        console.log(this.state.showContext)
         if(this.state.showContext) {
             this.setState({showContext: ''})
         } else {

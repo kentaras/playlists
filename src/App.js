@@ -23,6 +23,7 @@ class App extends Component {
                       <Route path="/callback" component={ GetKey } exact/>
                       <Route path="/createplaylist" component={ Create } exact/>
                       <Route path="/listen" component={ Listen } exact/>
+                      <Route path="/listen/:playlistId" component={ Listen } exact/>
                       <Route component={ Error } />
                   </Switch>
               </div>
