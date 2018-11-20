@@ -25,6 +25,7 @@ class Player extends Component {
         this.id = ''
         this.player = ''
         this.interval = ''
+        this.checkDeviceInterval = ''
         this.accessToken = localStorage.getItem('access_token')
         this.state = {
             deviceId: '',
@@ -48,7 +49,7 @@ class Player extends Component {
         }
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.interval = setInterval(() => this.checkForPlayer(), 1000)
     }
 
@@ -60,8 +61,10 @@ class Player extends Component {
     checkForPlayer() {
         if (window.Spotify !== null) {
             this.player = new window.Spotify.Player({
-                name: "Saulius Playlist",
-                getOAuthToken: cb => { cb(this.accessToken); },
+                name: "Saulius Player",
+                getOAuthToken: cb => {
+                    cb(this.accessToken);
+                },
             });
             this.player.connect();
             clearInterval(this.interval);
@@ -70,32 +73,37 @@ class Player extends Component {
     }
 
     createEventHandlers() {
-        this.player.on('initialization_error', e => { console.error(e); });
+        this.player.on('initialization_error', e => {
+            console.error(e);
+        });
         this.player.on('authentication_error', e => {
             console.error(e);
         });
-        this.player.on('account_error', e => { console.error(e); });
-        this.player.on('playback_error', e => { console.error(e); });
+        this.player.on('account_error', e => {
+            console.error(e);
+        });
+        this.player.on('playback_error', e => {
+            console.error(e);
+        });
 
         // Playback status updates
         this.player.on('player_state_changed', state => {
-            if(state) {
+            if (state) {
                 clearInterval(this.interval)
                 let trackState = (state.track_window.current_track)
                 let currentSong = (trackState.artists[0].name + ' - ' + trackState.name)
-                if(state.paused === false) {
+                if (state.paused === false) {
                     this.interval = setInterval(() => this.player.getCurrentState().then(state => (this.setPositionAndTime(state))), 1000)
                 }
-                let value = Math.floor(state.position/(parseInt(state.duration/100)))
+                let value = Math.floor(state.position / (parseInt(state.duration / 100)))
                 this.setState({
                     currentSong: currentSong,
                     shuffle: state.shuffle,
                     pauseButtonValue: state.paused,
                     inputRangeValue: value,
-                    rangeStep: state.duration/100,
+                    rangeStep: state.duration / 100,
                     trackImage: state.track_window.current_track.album.images[0].url,
                     trackAlbum: state.track_window.current_track.album.name,
-                    loading: false,
                     context: state
                 })
             }
@@ -104,33 +112,27 @@ class Player extends Component {
 
         // Ready
         this.player.on('ready', async data => {
-            let { device_id } = data;
-            console.log("Let the music play on!");
+            let {device_id} = data;
+            // console.log("Let the music play on!");
             this.playerGetVolume()
-            this.setState({ deviceId: device_id });
+            this.setState({deviceId: device_id});
             this.playHere(this.state.deviceId)
         });
     }
 
     playerControl(action) {
-        if(this.props.playlistId && !this.state.linkedFromPlaylist) {
-            api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 1)
-            this.setState({linkedFromPlaylist: true})
-        } else {
-            switch (action) {
-                case('play/pause'):
-                    this.player.togglePlay()
-                    break
-                case('next'):
-                    this.player.nextTrack()
-                    break
-                case('previous'):
-                    this.player.previousTrack()
-                    break
-                default:
-            }
+        switch (action) {
+            case('play/pause'):
+                this.player.togglePlay()
+                break
+            case('next'):
+                this.player.nextTrack()
+                break
+            case('previous'):
+                this.player.previousTrack()
+                break
+            default:
         }
-
     }
 
     playerGetVolume() {
@@ -141,15 +143,31 @@ class Player extends Component {
 
     playerSetVolume(vol) {
         this.player.setVolume(vol).then(() => {
-            console.log('Volume is now '+(vol*100)+'%')
+            console.log('Volume is now ' + (vol * 100) + '%')
             this.setState({volume: vol})
         })
     }
 
-    playHere(device) { // Transfer playback from other device
-        api.transferPlaybackHere(device)
+    async playHere(device) { // Transfer playback from other device
+        let transfered = await api.transferPlaybackHere(device)
+        this.checkDeviceInterval = setInterval(() => this.checkIfActive(), 1000)
+        // if(this.props.playlistId && !this.state.linkedFromPlaylist) {
+        //     api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 1)
+        //     this.setState({linkedFromPlaylist: true})
+        // }
     }
 
+    async checkIfActive() {
+        let deviceId = await api.getDeviceId()
+        if(deviceId.devices[0].is_active) {
+            if(this.props.playlistId && !this.state.linkedFromPlaylist) {
+                api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 0)
+                this.setState({linkedFromPlaylist: true})
+            }
+            clearInterval(this.checkDeviceInterval)
+            this.setState({loading: false})
+        }
+    }
 
     getPlayButtonValue() {
         if(this.state.pauseButtonValue) {
@@ -295,7 +313,7 @@ class Player extends Component {
                         </div>
                     </div>
                     <div className={'player player-playlists '+this.state.showContext}>
-                        <PlayerContext deviceId={this.state.deviceId} context={this.state.context}/>
+                        <PlayerContext loaded={!this.state.loading} deviceId={this.state.deviceId} context={this.state.context}/>
                     </div>
                 </div>
             )

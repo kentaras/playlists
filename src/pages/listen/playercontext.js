@@ -10,8 +10,10 @@ class PlayerContext extends Component {
         }
     }
 
-    async componentWillMount() {
-        this.getPlaylist()
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(nextProps.loaded) {
+            this.getPlaylist()
+        }
     }
 
     playSong(position) {

@@ -4,9 +4,9 @@ import '../../stylesheets/viewplaylists.css'
 import '../../stylesheets/base.css'
 import api from '../../services/api'
 import mongo from '../../services/mongoservice'
-import help from '../../services/helperfunctions'
 import SearchPlaylist from "./searchplaylist";
 import Loading from "../base/loading";
+import noPlaylistImage from '../../images/no-playlist-image.png'
 
 class ViewPlaylists extends Component {
 
@@ -18,10 +18,9 @@ class ViewPlaylists extends Component {
         this.state = {
             playlists: '',
             loading: true,
-            playlistsPerPage: 9,
+            playlistsPerPage: 6,
             playlistsTotal: '',
             playlistsInDB: true,
-            updated: false
         }
     }
 
@@ -35,31 +34,31 @@ class ViewPlaylists extends Component {
         }
     }
     // PLAYLISTS FROM API
-    // async renderPagePlaylists(e = 1) {
-    //     this.setState({loading: true})
-    //     let data = await api.getPlaylistsData(this.state.playlistsPerPage, (e-1)*this.state.playlistsPerPage)
-    //     let playlistsData = data.items
-    //     // Make playlists have tracks inside
-    //     await api.getTracksData(this.state.playlistsPerPage, this.state.playlistsPerPage*(e-1)).then(tracks => {
-    //         tracks.forEach((playlistTracks, playlistIndex) => {
-    //             playlistsData[playlistIndex].tracks = []
-    //             playlistTracks.forEach(track => {
-    //                 playlistsData[playlistIndex].tracks.push(track.track)
-    //             })
-    //         })
-    //     })
-    //     this.setState({playlistsTotal: data.total, playlists: playlistsData, loading: false})
-    // }
-
-    // PLAYLISTS FROM MONGO DB
     async renderPagePlaylists(e = 1) {
         this.setState({loading: true})
-        let userData = await api.getUserData()
-        this.userId = userData.id
-        this.playlists = await mongo.getPlaylistsByUserId(this.userId, this.state.playlistsPerPage, e)
-        this.count = await mongo.getUserPlaylistsCount(this.userId)
-        this.setState({playlistsTotal: this.count, playlists: this.playlists, loading: false})
+        let data = await api.getPlaylistsData(this.state.playlistsPerPage, (e-1)*this.state.playlistsPerPage)
+        let playlistsData = data.items
+        // Make playlists have tracks inside
+        await api.getTracksData(this.state.playlistsPerPage, this.state.playlistsPerPage*(e-1)).then(tracks => {
+            tracks.forEach((playlistTracks, playlistIndex) => {
+                playlistsData[playlistIndex].tracks = []
+                playlistTracks.forEach(track => {
+                    playlistsData[playlistIndex].tracks.push(track.track)
+                })
+            })
+        })
+        this.setState({playlistsTotal: data.total, playlists: playlistsData, loading: false})
     }
+
+    // PLAYLISTS FROM MONGO DB
+    // async renderPagePlaylists(e = 1) {
+    //     this.setState({loading: true})
+    //     let userData = await api.getUserData()
+    //     this.userId = userData.id
+    //     this.playlists = await mongo.getPlaylistsByUserId(this.userId, this.state.playlistsPerPage, e)
+    //     this.count = await mongo.getUserPlaylistsCount(this.userId)
+    //     this.setState({playlistsTotal: this.count, playlists: this.playlists, loading: false})
+    // }
 
     static getTracks(playlist) {
         return(
@@ -73,32 +72,32 @@ class ViewPlaylists extends Component {
         )
     }
 
-    async updatePlaylists() {
-        this.setState({updated: true})
-        let data = await api.getPlaylistsData()
-        let playlistsData = data.items
-        // put in name for search (lowercase)
-        playlistsData.forEach(playlist => {
-            playlist.searchName = playlist.name.toLowerCase()
-        })
-        // Make playlists have tracks inside
-        await api.getTracksData().then(tracks => {
-            tracks.forEach((playlistTracks, playlistIndex) => {
-                playlistsData[playlistIndex].tracks = []
-                playlistTracks.forEach(track => {
-                    playlistsData[playlistIndex].tracks.push(track.track)
-                })
-            })
-        })
-        this.insertPlaylists(playlistsData)
-    }
+    // async updatePlaylists() {
+    //     this.setState({updated: true})
+    //     let data = await api.getPlaylistsData()
+    //     let playlistsData = data.items
+    //     // put in name for search (lowercase)
+    //     playlistsData.forEach(playlist => {
+    //         playlist.searchName = playlist.name.toLowerCase()
+    //     })
+    //     // Make playlists have tracks inside
+    //     await api.getTracksData().then(tracks => {
+    //         tracks.forEach((playlistTracks, playlistIndex) => {
+    //             playlistsData[playlistIndex].tracks = []
+    //             playlistTracks.forEach(track => {
+    //                 playlistsData[playlistIndex].tracks.push(track.track)
+    //             })
+    //         })
+    //     })
+    //     this.insertPlaylists(playlistsData)
+    // }
 
-    insertPlaylists(playlistsData) {
-        playlistsData.forEach(playlist => {
-            console.log(playlist)
-            mongo.addPlaylist(playlist)
-        })
-    }
+    // insertPlaylists(playlistsData) {
+    //     playlistsData.forEach(playlist => {
+    //         console.log(playlist)
+    //         mongo.addPlaylist(playlist)
+    //     })
+    // }
 
     makePaginationControl() {
         let pageNumbers = []
@@ -152,14 +151,13 @@ class ViewPlaylists extends Component {
                                 return (
                                     <div className={'playlistHolder'} key={i}>
                                         <h2 className={'playlistName'}>{playlist.name}</h2>
-                                        <Link to={{pathname: `/playlist/${playlist.id}`}}><img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/></Link>
+                                        <Link to={{pathname: `/playlist/${playlist.id}`}}>{playlist.images[0] ? <img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/> : <img alt={playlist.name} className={'playlistImage'} src={noPlaylistImage}/>}</Link>
                                         {ViewPlaylists.getTracks(playlist)}
                                     </div>
                                 )
                             })
                         }
                     </div>
-                    {!this.state.updated ? <button onClick={() => this.updatePlaylists()} className={'btn updatePlaylists'}> Update Playlists </button> : ''}
                     {this.makePaginationControl()}
                 </div>
             )

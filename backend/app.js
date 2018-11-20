@@ -177,9 +177,8 @@ app.get('/refresh_token', function(req, res) {
 
 app.put('/insertplaylist/', function (req, res) {
     delete req.body._id
-    let queryUpdate = db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
+    db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
     // let queryInsert = db.collection('playlists').insertOne(req.body)
-    queryUpdate
 })
 
 // Insert many playlists to DB

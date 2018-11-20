@@ -32,6 +32,10 @@ class AddPlaylistToDb extends Component {
         }
     }
 
+    pushToSpotify() {
+
+    }
+
     render() {
         return(
             <button className={'btn addPlaylist'} onClick={() => this.addToMongo()}> Add Playlist </button>

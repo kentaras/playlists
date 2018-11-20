@@ -22,8 +22,8 @@ export default class {
 
     // Method to get users playlist data
 
-    static async getPlaylistsData(limit=50, offset=0) {
-        let playlistsData = await fetch(this.url + 'me/playlists?limit='+limit+'&offset='+offset , {
+    static async getPlaylistsData(limit = 50, offset = 0) {
+        let playlistsData = await fetch(this.url + 'me/playlists?limit=' + limit + '&offset=' + offset, {
             headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(playlistsData => {
@@ -57,9 +57,9 @@ export default class {
 
     // Method to search songs by name or artist
 
-    static async searchSongs(songName, limit=20) {
-        let songsArray = await fetch(this.url + 'search?q='+songName+'&type=track,artist&limit='+limit, {
-            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+    static async searchSongs(songName, limit = 20) {
+        let songsArray = await fetch(this.url + 'search?q=' + songName + '&type=track,artist&limit=' + limit, {
+            headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(songs => {
                 return songs
@@ -71,7 +71,7 @@ export default class {
 
     static async getDeviceId() {
         let deviceId = await fetch(this.url + 'me/player/devices', {
-            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+            headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(device => {
                 return device
@@ -81,7 +81,7 @@ export default class {
 
     static async getCurrentPlaybackInfo() {
         let currentInfo = await fetch(this.url + 'me/player', {
-            headers: { 'Authorization': 'Bearer ' + this.accessToken }
+            headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(device => {
                 return device
@@ -98,29 +98,31 @@ export default class {
     static seekPosition(position_ms) { // Change playback position
         fetch(this.url + `me/player/seek?position_ms=${position_ms}`, {
             method: 'PUT',
-            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+            headers: {'Authorization': `Bearer ${this.accessToken}`}
         }).then(response => console.log(response))
     }
 
     static playNext() { // Play next track
         fetch(this.url + 'me/player/next', {
             method: 'POST',
-            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+            headers: {'Authorization': `Bearer ${this.accessToken}`}
         }).then(response => console.log(response))
     }
 
     static shuffle(state) { // Toggle shuffle
         fetch(this.url + `me/player/shuffle?state=${state}`, {
             method: 'PUT',
-            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+            headers: {'Authorization': `Bearer ${this.accessToken}`}
         })
     }
 
     static repeat(state) { // Toggle Repeat
         fetch(this.url + 'me/player/repeat', {
             method: 'PUT',
-            headers: { 'Authorization': 'Bearer' + this.accessToken,
-                        "Accept": "application/json"},
+            headers: {
+                'Authorization': 'Bearer' + this.accessToken,
+                "Accept": "application/json"
+            },
             body: JSON.stringify(state)
         }).then(response => console.log(response))
     }
@@ -133,10 +135,10 @@ export default class {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "device_ids": [ deviceId ],
+                "device_ids": [deviceId],
                 "pause": true,
             }),
-        })
+        }).then(response => response)
     }
 
     // Take playlist
@@ -165,10 +167,11 @@ export default class {
             })
         })
     }
+
     static async getPlaylistById(playlistId) {
         let playlistData = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${this.accessToken}` }
+            headers: {'Authorization': `Bearer ${this.accessToken}`}
         }).then(response => response.json())
             .then(playlistData => {
                 return playlistData
@@ -189,5 +192,31 @@ export default class {
     //             return res
     //         })
     // }
+
+    // Add playlist
+
+    static insertPlaylist(playlistName, playlistDescription) {
+        fetch('https://api.spotify.com/v1/users/thelinmichael/playlists', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${this.accessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: playlistName,
+                description: playlistDescription
+            })
+        })
+    }
+
+    static async getPlaylistTracksData(playlistData) {
+        let data = fetch(playlistData.tracks.href, {
+            headers: {'Authorization': 'Bearer ' + this.accessToken}
+        }).then(response => response.json())
+            .then((data) => {
+                return data
+            })
+        return data
+    }
 
 }
