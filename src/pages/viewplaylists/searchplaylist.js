@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ViewPlaylists from './viewplaylists'
 import Loading from "../base/loading";
-import mongo from '../../services/mongoservice'
+import api from "../../services/api"
+import { Link } from 'react-router-dom'
 
 class SearchPlaylist extends Component {
     constructor() {
@@ -33,8 +34,9 @@ class SearchPlaylist extends Component {
 
     async renderSearchPlaylists() {
         this.setState({loading: true})
-        let playlists = await mongo.getPlaylistBySearch(this.props.userId, this.props.search)
-        this.setState({playlists: playlists, loading: false})
+        let playlists = await api.getPlaylistsData()
+        console.log(playlists)
+        this.setState({playlists: playlists.items, loading: false})
     }
 
     render() {
@@ -48,8 +50,9 @@ class SearchPlaylist extends Component {
                     return (
                         <div className={'playlistHolder'} key={i}>
                             <h2 className={'playlistName'}>{playlist.name}</h2>
-                            <img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/>
-                            {ViewPlaylists.getTracks(playlist)}
+                            <Link to={'/playlist/'+playlist.id}><img alt={playlist.name} className={'playlistImage'} src={playlist.images[0].url}/></Link>
+                            {/*{ViewPlaylists.getTracks(playlist)}*/}
+                            <p>Total {playlist.tracks.total} tracks in this playlist</p>
                         </div>
                     )
                 })
