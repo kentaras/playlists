@@ -38,8 +38,10 @@ class PlayerContext extends Component {
     }
 
     isPlaying(song) {
+        let currentSongName = this.props.currentSong
         let currentSongId = this.props.context.track_window.current_track.id
-        if (song.track.id === currentSongId) {
+        let songName = song.track.artists[0].name+' - '+song.track.name
+        if (song.track.id === currentSongId || currentSongName === songName) {
             return 'songPlaying'
         }
     }
@@ -53,7 +55,7 @@ class PlayerContext extends Component {
                         {this.state.playlist.tracks.items.map((song, i) => {
                             return (
                                 <li key={i} className={'songInList ' + this.isPlaying(song)} onClick={() => this.playSong(i)}>
-                                    <img className={'buttonImage imgLeft'} src={song.track.album.images[0].url}/>
+                                    <img alt={song.track.name} className={'buttonImage imgLeft'} src={song.track.album.images[0].url}/>
                                     {song.track.artists[0].name+' - '+song.track.name}
                                     {this.getTrackLength(song.track.duration_ms)}
                                 </li>

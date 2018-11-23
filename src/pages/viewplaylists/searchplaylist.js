@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import ViewPlaylists from './viewplaylists'
 import Loading from "../base/loading";
-import api from '../../services/api'
 import mongo from '../../services/mongoservice'
 
 class SearchPlaylist extends Component {
     constructor() {
         super()
-        this.playlistsData = []
         this.state = {
             playlists: ''
         }

@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import loadGif from '../images/loader.gif'
 import queryString from "query-string";
 import Error from "../pages/error";
-import help from "./helperfunctions";
-import mongo from "./mongoservice";
 
 class GetKey extends Component {
 

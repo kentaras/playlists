@@ -264,7 +264,7 @@ export default class {
     }
 
     static async removeTracks(playlistId, tracksArray) {
-        let response = fetch('https://api.spotify.com/v1/playlists/'+playlistId+'/tracks', {
+        fetch('https://api.spotify.com/v1/playlists/'+playlistId+'/tracks', {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${this.accessToken}`,

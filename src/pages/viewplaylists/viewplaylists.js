@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../../stylesheets/viewplaylists.css'
 import '../../stylesheets/base.css'
 import api from '../../services/api'
-import mongo from '../../services/mongoservice'
 import SearchPlaylist from "./searchplaylist";
 import Loading from "../base/loading";
 import noPlaylistImage from '../../images/no-playlist-image.png'

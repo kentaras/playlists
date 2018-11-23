@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import noImage from '../../images/no-image.png'
 import api from '../../services/api'
-import mongo from '../../services/mongoservice'
 
 class AddPlaylistToDb extends Component {
 

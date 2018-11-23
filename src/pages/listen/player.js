@@ -12,9 +12,9 @@ import arrowUpImg from '../../images/arrow-up.png'
 import nextButton from '../../images/next.png'
 import previousButton from '../../images/previous.png'
 import InputRange from 'react-input-range'
-import repeatOffButton from '../../images/repeatOff.png'
-import repeatAllButton from '../../images/repeatAll.png'
-import repeatOneButton from '../../images/repeatOne.png'
+// import repeatOffButton from '../../images/repeatOff.png'
+// import repeatAllButton from '../../images/repeatAll.png'
+// import repeatOneButton from '../../images/repeatOne.png'
 import Loading from "../base/loading";
 import VolumeControl from "./volumecontrol";
 import PlayerContext from "./playercontext";
@@ -46,7 +46,7 @@ class Player extends Component {
             loading: true,
             showContext: '',
             context: '',
-            linkedFromPlaylist: false
+            linkedFromPlaylist: false,
         }
     }
 
@@ -154,7 +154,7 @@ class Player extends Component {
     }
 
     async playHere(device) { // Transfer playback from other device
-        let transfered = await api.transferPlaybackHere(device)
+        await api.transferPlaybackHere(device)
         this.checkDeviceInterval = setInterval(() => this.checkIfActive(), 1000)
     }
 
@@ -172,9 +172,9 @@ class Player extends Component {
 
     getPlayButtonValue() {
         if(this.state.pauseButtonValue) {
-            return <img className={'buttonImage'} src={playButton}/>
+            return <img alt={'Play'} className={'buttonImage'} src={playButton}/>
         } else {
-            return <img className={'buttonImage'} src={pauseButton}/>
+            return <img alt={'Pause'} className={'buttonImage'} src={pauseButton}/>
         }
     }
 
@@ -185,9 +185,9 @@ class Player extends Component {
 
     getShuffleButtonValue() {
         if (this.state.shuffle) {
-            return <img className={'buttonImage'} src={shuffleButtonOn}/>
+            return <img alt={'Turn off shuffle'} className={'buttonImage'} src={shuffleButtonOn}/>
         } else {
-            return <img className={'buttonImage'} src={shuffleButtonOff}/>
+            return <img alt={'Turn on shuffle'} className={'buttonImage'} src={shuffleButtonOff}/>
         }
     }
 
@@ -220,9 +220,9 @@ class Player extends Component {
 
     getArrowButtonValue() {
         if(this.state.showContext) {
-            return <img className={'buttonImage'} src={arrowUpImg} />
+            return <img alt={'Hide'} className={'buttonImage'} src={arrowUpImg} />
         } else {
-            return <img className={'buttonImage'} src={arrowDownImg} />
+            return <img alt={'Show'} className={'buttonImage'} src={arrowDownImg} />
         }
     }
 
@@ -271,32 +271,33 @@ class Player extends Component {
                         <div>
                             <div className={'currentSong'}>
                                 <p> Now Playing: </p>
-                                <marquee>{this.state.currentSong}</marquee>
+                                <h3>{this.state.currentSong}</h3>
                                 {this.state.trackSeconds ? <p className={'trackTime'}>{this.state.trackMinutes + ' : ' + this.state.trackSeconds}</p> : <p className={'trackTime'}> 00 : 00 </p>}
                                 <div className={'playerButtons'}>
                                     <button className={'playerButton'}
                                             onClick={() => this.playerControl('previous')}>
-                                        <img src={previousButton} className={'buttonImage'}/></button>
+                                        <img alt={'Play previous'} src={previousButton} className={'buttonImage'}/></button>
                                     <button className={'playerButton'}
                                             onClick={() => this.playerControl('play/pause')}>{this.getPlayButtonValue()}</button>
                                     <button className={'playerButton'} onClick={() => this.playerControl('next')}>
-                                        <img
+                                        <img alt={'Play next'}
                                             src={nextButton} className={'buttonImage'}/></button>
                                     <button className={'playerButton'}
                                             onClick={() => this.playerToggleShuffle()}> {this.getShuffleButtonValue()} </button>
                                     {/*<button className={'playerButton'} onClick={() => this.playerToggleRepeat()}> {this.getRepeatButtonValue()} </button>*/}
                                 </div>
                                 <div className={'slider'}>
-                                    <InputRange formatLabel={value => ''}
+                                    <InputRange formatLabel={value => '' }
                                                 minValue={0}
                                                 maxValue={100}
                                                 onChange={value => this.changePosition(value)}
-                                                value={this.state.inputRangeValue}/>
+                                                value={this.state.inputRangeValue}
+                                    />
                                 </div>
                             </div>
                         </div>
                         <div className={'songInfo'}>
-                            {!this.state.trackImage ? <img src={noImage}/> : <img src={this.state.trackImage}/>}
+                            {!this.state.trackImage ? <img alt={'Empty'} src={noImage}/> : <img alt={'Album'} src={this.state.trackImage}/>}
                             <p className={'songInfoText'}> {this.state.trackAlbum}</p>
                             <VolumeControl volume={this.state.volume} changeVolume={(e) => this.playerSetVolume(e)}/>
                             <button className={'playerButton arrow'} onClick={() => this.togglePlayerContext()}>{this.getArrowButtonValue()}</button>

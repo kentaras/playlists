@@ -9,17 +9,17 @@ class VolumeControl extends Component {
 
     getVolUpButton() {
         if(this.props.volume < 1) {
-            return(<img className={'buttonImage'} src={volUpImg}/>)
+            return(<img alt={'volume'} className={'buttonImage'} src={volUpImg}/>)
         } else {
-            return(<img className={'buttonImage'} src={volUpDisableImg}/>)
+            return(<img alt={'volume'} className={'buttonImage'} src={volUpDisableImg}/>)
         }
     }
 
     getVolDownButton() {
         if(this.props.volume > 0.09) {
-            return(<img className={'buttonImage'} src={volDownImg}/>)
+            return(<img alt={'volume'} className={'buttonImage'} src={volDownImg}/>)
         } else {
-            return(<img className={'buttonImage'} src={volDownDisableImg}/>)
+            return(<img alt={'volume'} className={'buttonImage'} src={volDownDisableImg}/>)
         }
     }
 

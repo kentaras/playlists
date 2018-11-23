@@ -15,7 +15,7 @@ class PlaylistInfo extends Component {
     }
 
     componentWillMount() {
-        let playlistId = (this.props && this.props.match && this.props.match.params && this.props.match.params.id || '')
+        let playlistId = ((this.props && this.props.match && this.props.match.params && this.props.match.params.id) || '')
         if(playlistId) {
             this.getPlaylistData(playlistId)
         } else {

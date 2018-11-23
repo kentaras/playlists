@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Loading from "../../base/loading";
 import PredictiveSearch from "../../create/predictivesearch";
 import help from '../../../services/helperfunctions'
-import mongo from '../../../services/mongoservice'
 import api from '../../../services/api'
 import editImg from '../../../images/edit.png'
 import saveImg from '../../../images/save.png'
@@ -27,14 +26,14 @@ class ShowPlaylist extends Component {
             return(
                 <div className={'nameDiv'}>
                     <input maxLength={100} type={'text'} onChange={(e) => this.setName(e.target.value)} className={'editPlaylistName'} defaultValue={this.state.playlist.name}/>
-                    <img src={saveImg} onClick={() => this.editName()} className={'editImage'}/>
+                    <img alt={'Change playlist name'} src={saveImg} onClick={() => this.editName()} className={'editImage'}/>
                 </div>
             )
         } else {
             return (
                 <div className={'nameDiv'}>
                     <h1 className={'viewPlaylistName'}>{this.state.playlist.name}</h1>
-                    <img src={editImg} onClick={() => this.editName()} className={'editImage'}/>
+                    <img alt={'Edit playlist name'} src={editImg} onClick={() => this.editName()} className={'editImage'}/>
                 </div>
             )
         }
