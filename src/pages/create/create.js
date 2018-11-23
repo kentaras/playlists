@@ -15,13 +15,15 @@ class Create extends Component {
         this.setState({searchRequest: e})
     }
 
-
+    redirectAfterCreatingPlaylist(e) {
+        this.props.history.push('/playlist/'+e)
+    }
 
     render() {
         return(
             <div>
                 <Header searchBar={false} searchWord={(e) => this.searchText(e)}/>
-                <Main page={'createPlaylist'}/>
+                <Main added={(e) => this.redirectAfterCreatingPlaylist(e)} page={'createPlaylist'}/>
                 <Footer/>
             </div>
         )

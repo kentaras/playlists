@@ -10,7 +10,7 @@ class Main extends Component {
         if(this.props.page === 'homepage') {
             return <ViewPlaylists currentPage={this.props.currentPage} search={this.props.search}/>
         } else if(this.props.page === 'createPlaylist') {
-            return <CreatePlaylist search={this.props.search}/>
+            return <CreatePlaylist passPlaylistId={(e) => this.props.added(e)} search={this.props.search}/>
         } else if(this.props.page === 'playlist') {
             return <ShowPlaylist playlistData={this.props.playlistData}/>
         } else if(this.props.page === 'listen') {

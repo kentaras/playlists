@@ -4,6 +4,7 @@
     width: 250px;
     background-color: rgba(34, 102, 102, 0.95);
     height: 100%;
+    z-index: 999;
 }
 .visible {
     transition: margin 350ms;

@@ -7,7 +7,6 @@ class Loading extends Component {
         return(
             <div className={'loader'}>
                 {this.props.player ? <img className={'playerLoader'} alt={'Loading'} src={playerLoader}/> : <img alt={'Loading'} src={loadImage}/>}
-                <h1> Collecting data... </h1>
             </div>
         )
     }

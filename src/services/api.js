@@ -117,13 +117,11 @@ export default class {
     }
 
     static repeat(state) { // Toggle Repeat
-        fetch(this.url + 'me/player/repeat', {
+        fetch(this.url + 'me/player/repeat?state='+state, {
             method: 'PUT',
             headers: {
                 'Authorization': 'Bearer' + this.accessToken,
-                "Accept": "application/json"
             },
-            body: JSON.stringify(state)
         }).then(response => console.log(response))
     }
 
@@ -193,20 +191,41 @@ export default class {
     //         })
     // }
 
-    // Add playlist
+    // Add playlist to Spotify
 
-    static insertPlaylist(playlistName, playlistDescription) {
-        fetch('https://api.spotify.com/v1/users/thelinmichael/playlists', {
+    static insertPlaylist(newPlaylist) {
+        let response = fetch('https://api.spotify.com/v1/users/' + newPlaylist.userId + '/playlists', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${this.accessToken}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: playlistName,
-                description: playlistDescription
+                name: newPlaylist.name,
+                description: newPlaylist.description,
+                collaborative: false,
+                public: true
             })
+        }).then(response => {
+            return response
         })
+        return response
+    }
+
+    static insertSongs(songsArray, playlistId) {
+        let response = fetch('https://api.spotify.com/v1/playlists/' + playlistId + '/tracks', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${this.accessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                uris: songsArray
+            })
+        }).then(response => {
+            return response
+        })
+        return response
     }
 
     static async getPlaylistTracksData(playlistData) {
@@ -217,6 +236,44 @@ export default class {
                 return data
             })
         return data
+    }
+
+    static async getPlaylistTracksDataByURL(playlistURL) {
+        let data = fetch(playlistURL, {
+            headers: {'Authorization': 'Bearer ' + this.accessToken}
+        }).then(response => response.json())
+            .then((data) => {
+                return data
+            })
+        return data
+    }
+
+    static async changePlaylistName(playlistId, name) {
+        let response = fetch(this.url + 'playlists/' + playlistId, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${this.accessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                description: 'Created On "Saulius Playlists" App'
+            })
+        })
+        return response
+    }
+
+    static async removeTracks(playlistId, tracksArray) {
+        let response = fetch('https://api.spotify.com/v1/playlists/'+playlistId+'/tracks', {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${this.accessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                tracks: tracksArray
+            })
+        })
     }
 
 }

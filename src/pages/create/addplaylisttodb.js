@@ -5,40 +5,48 @@ import mongo from '../../services/mongoservice'
 
 class AddPlaylistToDb extends Component {
 
-    async addToMongo() {
-        //TODO Redirect/Clear fields after save to DB
-        const playlist = {}
-        let userInfo = await api.getUserData()
-        let date = new Date()
-        let ms = date.getTime()
+    async insertToSpotify() {
         if(!this.props.name) {  // Check if name is entered
             window.alert('Enter playlist name!')
-        } else if (!this.props.tracks) { // Check if tracks are added
-            window.alert('Playlist must contain at least 1 song!')
-        } else { // Prepare data and post it to mongo
+        } else { // Prepare data and post it to Spotify
+            const playlist = {}
             playlist.name = this.props.name
-            if (this.props.tracks && this.props.tracks[0] && this.props.tracks[0].album && this.props.tracks[0].album.images && this.props.tracks[0].album.images[0]) {
-                playlist.images = this.props.tracks[0].album.images
-            } else {
-                playlist.images = noImage
-            }
-            playlist.tracks = this.props.tracks
+            playlist.description = 'Test'
+            playlist.colaborative = false
             playlist.public = true
-            playlist.type = 'playlist'
-            playlist.owner = userInfo
-            playlist.id = String(ms)
-            playlist.searchName = this.props.name.toLowerCase()
-            mongo.addPlaylist(playlist, userInfo.id)
+            let userInfo = await api.getUserData()
+            playlist.userId = userInfo.id
+            let checkIfPlaylistAdded = await api.insertPlaylist(playlist)
+            if (checkIfPlaylistAdded.status === 201 || checkIfPlaylistAdded.status === 200) {
+                if (this.props.tracks.length > 0) {
+                    this.addTracksToNewPlaylist()
+                } else {
+                    let playlistsData = await api.getPlaylistsData()
+                    this.props.redirectId(playlistsData.items[0].id)
+                }
+            } else {
+                console.log('error')
+            }
         }
     }
 
-    pushToSpotify() {
-
+    async addTracksToNewPlaylist() {
+        const tracks = []
+        this.props.tracks.forEach(track => {
+            tracks.push(track.uri)
+        })
+        let playlistsData = await api.getPlaylistsData()
+        let checkIfTracksAdded = await api.insertSongs(tracks, playlistsData.items[0].id)
+        if(checkIfTracksAdded.status === 201 || checkIfTracksAdded === 200) {
+            this.props.redirectId(playlistsData.items[0].id)
+        } else {
+            window.alert('Error adding tracks :(')
+        }
     }
 
     render() {
         return(
-            <button className={'btn addPlaylist'} onClick={() => this.addToMongo()}> Add Playlist </button>
+            <button className={'btn addPlaylist'} onClick={() => this.insertToSpotify()}> Add Playlist </button>
         )
     }
 }

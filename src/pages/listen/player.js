@@ -18,6 +18,7 @@ import repeatOneButton from '../../images/repeatOne.png'
 import Loading from "../base/loading";
 import VolumeControl from "./volumecontrol";
 import PlayerContext from "./playercontext";
+import help from '../../services/helperfunctions'
 
 class Player extends Component {
     constructor(props) {
@@ -54,8 +55,12 @@ class Player extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval)
-        this.player.disconnect()
+        if(this.interval) {
+            clearInterval(this.interval)
+        }
+        if(this.player) {
+            this.player.disconnect()
+        }
     }
 
     checkForPlayer() {
@@ -151,10 +156,6 @@ class Player extends Component {
     async playHere(device) { // Transfer playback from other device
         let transfered = await api.transferPlaybackHere(device)
         this.checkDeviceInterval = setInterval(() => this.checkIfActive(), 1000)
-        // if(this.props.playlistId && !this.state.linkedFromPlaylist) {
-        //     api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 1)
-        //     this.setState({linkedFromPlaylist: true})
-        // }
     }
 
     async checkIfActive() {
@@ -191,29 +192,17 @@ class Player extends Component {
     }
 
     setPositionAndTime(state) {
-        let positionSeconds = parseInt(state.position/1000)
-        let minutes = this.getTime(positionSeconds, 'min')
-        let seconds = this.getTime(positionSeconds, 'sec')
-        this.setState({trackMinutes: minutes, trackSeconds: seconds, inputRangeValue: state.position/(parseInt(state.duration/100))})
+        let positionSeconds = parseInt(state.position / 1000)
+        let minutes = help.getDurationTime(positionSeconds, 'min')
+        let seconds = help.getDurationTime(positionSeconds, 'sec')
+        this.setState({
+            trackMinutes: minutes,
+            trackSeconds: seconds,
+            inputRangeValue: state.position / (parseInt(state.duration / 100))
+        })
     }
 
-    getTime(positionSeconds, val) {
-        if(val === 'min'){
-            let minutes = Math.floor(positionSeconds/60)
-            if(minutes < 10){
-                return '0' + minutes
-            } else{
-                return minutes
-            }
-        } else if(val === 'sec') {
-            let seconds = Math.floor(positionSeconds % 60)
-            if (seconds < 10) {
-                return '0' + seconds
-            } else {
-                return seconds
-            }
-        }
-    }
+
 
     changePosition(value) {
         let newPosition = this.state.rangeStep*value
@@ -245,6 +234,7 @@ class Player extends Component {
     // }
 
     // playerToggleRepeat() {
+    //     this.player.repeat()
     //     if(this.state.repeat === 'off') {
     //         this.setState({repeat: 'track'})
     //     } else if (this.state.repeat === 'track') {
@@ -269,7 +259,7 @@ class Player extends Component {
     render() {
         if(this.state.loading) {
             return(
-                <div className={'player'}>
+                <div className={'player nogrid'}>
                     <div> <Loading player={true}/> </div>
                 </div>
             )
@@ -313,7 +303,7 @@ class Player extends Component {
                         </div>
                     </div>
                     <div className={'player player-playlists '+this.state.showContext}>
-                        <PlayerContext loaded={!this.state.loading} deviceId={this.state.deviceId} context={this.state.context}/>
+                        <PlayerContext currentSong={this.state.currentSong} loaded={!this.state.loading} deviceId={this.state.deviceId} context={this.state.context}/>
                     </div>
                 </div>
             )

@@ -124,6 +124,7 @@
     background-color: transparent;
     border: 2px solid rgb(34, 102, 102);
     cursor: pointer;
+    user-select: none;
 }
 .btn:hover {
     background-color: rgb(34, 102, 102);
@@ -132,6 +133,9 @@
 .hr {
     width: 100%;
     height: 1px;
+}
+.searchBarMargin {
+    margin-top: 10px;
 }
 /*===================MEDIA==============*/
 

@@ -3,6 +3,7 @@ import Loading from "../../base/loading";
 import PredictiveSearch from "../../create/predictivesearch";
 import help from '../../../services/helperfunctions'
 import mongo from '../../../services/mongoservice'
+import api from '../../../services/api'
 import editImg from '../../../images/edit.png'
 import saveImg from '../../../images/save.png'
 import { Link } from "react-router-dom";
@@ -25,7 +26,7 @@ class ShowPlaylist extends Component {
         if(this.state.editName) {
             return(
                 <div className={'nameDiv'}>
-                    <input type={'text'} onChange={(e) => this.setName(e.target.value)} className={'editPlaylistName'} defaultValue={this.state.playlist.name}/>
+                    <input maxLength={100} type={'text'} onChange={(e) => this.setName(e.target.value)} className={'editPlaylistName'} defaultValue={this.state.playlist.name}/>
                     <img src={saveImg} onClick={() => this.editName()} className={'editImage'}/>
                 </div>
             )
@@ -46,36 +47,44 @@ class ShowPlaylist extends Component {
     }
 
     editName() {
+        if(this.state.editName) {
+            api.changePlaylistName(this.state.playlist.id, this.state.playlist.name)
+        }
         this.setState({editName: !this.state.editName})
     }
 
     removeSong(i) {
         let playlistObj = help.cloneArray(this.state.playlist)
-        playlistObj.tracks.splice(i, 1)
+        let trackUri = []
+        trackUri.push({uri: playlistObj.tracks.items[i].track.uri, positions: [i]})
+        api.removeTracks(playlistObj.id, trackUri)
+        playlistObj.tracks.items.splice(i, 1)
         this.setState({playlist: playlistObj})
     }
 
-    addSong(song) {
+    async addSong(song) {
+        // console.log(this.state.playlist.tracks.items)
         let playlistObj = help.cloneArray(this.state.playlist)
-        // console.log(song.tracks.items[0], playlistObj.tracks[0])
-        playlistObj.tracks.push(song.tracks.items[0])
-        this.setState({playlist: playlistObj})
-    }
+        let songs = []
+        songs.push(song.tracks.items[0].uri)
+        let response = await api.insertSongs(songs, this.state.playlist.id)
+        let playlistTracks = await api.getPlaylistTracksDataByURL(response.url)
+        playlistObj.tracks.items.push(playlistTracks.items[(playlistTracks.total)-1])
+        if(playlistObj.tracks.items[0]) {
+            this.setState({playlist: playlistObj})
+        } else {
+            console.log('Error')
+        }
 
-    updatePlaylist() {
-        mongo.addPlaylist(this.state.playlist)
     }
-
-    //TODO make EDIT PLAYLIST work from API
 
     getPlaylistTracks() {
-        console.log(this.state.playlist.tracks.items.length)
         if(this.state.playlist.tracks.items.length > 0) {
             return(
                 this.state.playlist.tracks.items.map((track, i) => {
                     return(
                         <div key={i} className={'viewPlaylistTracks'}>
-                        <li className={'playlistTrack'}>{track.track.artists[0].name + ' - ' + track.track.name}</li>
+                        <li className={'viewPlaylistTrack'}>{track.track.artists[0].name + ' - ' + track.track.name}</li>
                         <button onClick={() => this.removeSong(i)} className={'removeTrack'}> X</button>
                         </div>
                     )
@@ -89,6 +98,22 @@ class ShowPlaylist extends Component {
         }
     }
 
+    getListenButton() {
+        if(this.state.playlist.tracks.items.length > 0) {
+            return(
+                <div>
+                    {this.state.playlist.uri ? <Link to={'/listen/'+this.state.playlist.id}><h1 className={'btn shorterButton mainColor'}>LISTEN ON SPOTIFY</h1></Link> : ''}
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                    {this.state.playlist.uri ? <h1 className={'btn shorterButton mainColor'}>Add songs to Listen on Spotify</h1> : ''}
+                </div>
+            )
+        }
+    }
+
     render() {
         if(this.state.playlist) {
             return (
@@ -96,19 +121,18 @@ class ShowPlaylist extends Component {
                     <div className={'infoGrid'}>
                         {this.state.playlist.images[0] ? <img className={'viewPlaylistImage'} src={this.state.playlist.images[0].url} alt={this.state.playlist.name}/> : <img className={'viewPlaylistImage'} src={noPlaylistImage} alt={this.state.playlist.name + 'no Image'}/> }
                             {this.getPlaylistName()}
-                        {this.state.playlist.uri ? <Link to={'/listen/'+this.state.playlist.id}> LISTEN ON SPOTIFY </Link> : ''}
+                        {this.getListenButton()}
                     </div>
                     <div>
                         <div className={'tracksGrid'}>
-                            <h2> Add Songs </h2>
-                            <p> Click on a song in search and it will move to your playlist </p>
+                            <h2 className={'mainColor'}> Add Songs </h2>
+                            <p className={'mainColor'}> Click on a song in search and it will move to your playlist </p>
                             <PredictiveSearch foundSong={(e)=> this.addSong(e)} page={'edit'}/>
                         </div>
                         <ul className={'tracks-ul'}>
-                            <p> Press X next to a song to remove from list </p>
+                            <p className={'mainColor'}> Press X next to a song to remove from list </p>
                             {this.getPlaylistTracks()}
                         </ul>
-                        <button className={'btn'} onClick={() => this.updatePlaylist()}> Save changes </button>
                     </div>
                 </div>
             )

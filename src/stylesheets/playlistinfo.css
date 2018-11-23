@@ -34,7 +34,7 @@
 }
 .tracksGrid {
     margin-top: 1%;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
 }
 .viewPlaylistTracks {
     display: grid;
@@ -42,6 +42,7 @@
     grid-column-gap: 3%;
     margin-top: 2%;
     text-align: left;
+    user-select: none;
 }
 .tracks-ul {
     max-height: 350px;
@@ -70,7 +71,14 @@ a {
     text-decoration: none;
     color: slategrey;
 }
-
+.mainColor {
+    color: rgb(34, 102, 102);
+}
+.shorterButton {
+    width: 80%;
+    margin: auto;
+}
+/*=======================MEDIA==================*/
 @media only screen and (max-width: 800px) {
     .playlistGrid {
         grid-template-columns: 100%;

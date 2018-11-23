@@ -4,7 +4,6 @@ import Header from "../../base/header";
 import Main from "../../base/main";
 import Footer from "../../base/footer";
 import Error from "../../error";
-import mongo from "../../../services/mongoservice"
 import api from "../../../services/api"
 
 class PlaylistInfo extends Component {
@@ -25,11 +24,8 @@ class PlaylistInfo extends Component {
     }
 
     async getPlaylistData(playlistId) {
-        // FOR MONGO DB
-        // let playlistData = await mongo.getPlaylistDataById(playlistId)
         let playlistData = await api.getPlaylistById(playlistId)
         playlistData.tracks = await api.getPlaylistTracksData(playlistData)
-        console.log(playlistData)
         this.setState({playlist: playlistData})
     }
 
