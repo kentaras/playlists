@@ -4,7 +4,7 @@ import '../../stylesheets/login.css'
 class Login extends Component {
 
     login() {
-        window.location = 'http://localhost:8888/login'
+        window.location = 'https://playlists-and-player.herokuapp.com/login'
     }
 
     render() {

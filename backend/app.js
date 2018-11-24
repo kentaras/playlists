@@ -23,7 +23,7 @@ const bodyParser = require('body-parser');
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
 const client_secret = 'ddcb1c4af3384ca2a2a27b2d12393e2f'; // Your secret
 // const redirect_uri = 'https://playlists-kentaraz355962.codeanyapp.com/callback'
-const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+const redirect_uri = 'https://playlists-and-player.herokuapp.com/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -131,7 +131,7 @@ app.get('/callback', function(req, res) {
                 });
 
                 // we can also pass the token to the browser to make requests from there
-                res.redirect('http://localhost:3000/callback?' +
+                res.redirect('https://playlists-and-player.herokuapp.com/callback?' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token
@@ -172,67 +172,67 @@ app.get('/refresh_token', function(req, res) {
 });
 
 // =========================MUSIC-APP===================== //
-
-// Insert playlist to DB
-
-app.put('/insertplaylist/', function (req, res) {
-    delete req.body._id
-    db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
-    // let queryInsert = db.collection('playlists').insertOne(req.body)
-})
-
-// Insert many playlists to DB
-
-app.post('/insertplaylists/', function (req, res) {
-    let queryUpdate = db.collection('playlists').insertMany(req.body)
-    // let queryInsert = db.collection('playlists').insertOne(req.body)
-    queryUpdate.then((res, err) => {
-        console.log(res);
-        console.log('success')
-    })
-})
-
-// Get count of user playlists
-app.get('/getuserplaylistscount/:userid', function(req, res) {
-    let userId = req.params.userid
-    db.collection('playlists').find({'owner.id': userId}).count(function(err, doc) {
-        res.status(200)
-        res.send(JSON.stringify(doc))
-    })
-})
-
-// Get users playlists
-
-app.get('/getplaylistsforuser/:userId/:quantity/:page', function(req, res){
-    let userId = req.params.userId
-    let quantity = parseInt(req.params.quantity)
-    let page = req.params.page
-    db.collection('playlists').find({'owner.id': userId}).skip((page-1)*quantity).limit(quantity).toArray(function(err, docs) {
-        res.status(200);
-        res.send(JSON.stringify(docs))
-    })
-})
-
-// Get playlist by ID
-
-app.get('/getplaylistdata/:playlistid', function(req, res) {
-    let playlistId = req.params.playlistid
-    db.collection('playlists').find({id: playlistId}).toArray(function(err, docs) {
-        res.status(200)
-        res.send(JSON.stringify(docs))
-    })
-})
-
-app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
-    let userId = req.params.userid
-    let searchWord = (req.params.searchword).toLowerCase()
-    console.log(searchWord)
-    db.collection('playlists').find({'owner.id': userId, 'searchName': new RegExp(searchWord)}).toArray(function(err, docs) {
-        console.log(docs)
-        res.status(200)
-        res.send(JSON.stringify(docs))
-    })
-})
+//
+// // Insert playlist to DB
+//
+// app.put('/insertplaylist/', function (req, res) {
+//     delete req.body._id
+//     db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
+//     // let queryInsert = db.collection('playlists').insertOne(req.body)
+// })
+//
+// // Insert many playlists to DB
+//
+// app.post('/insertplaylists/', function (req, res) {
+//     let queryUpdate = db.collection('playlists').insertMany(req.body)
+//     // let queryInsert = db.collection('playlists').insertOne(req.body)
+//     queryUpdate.then((res, err) => {
+//         console.log(res);
+//         console.log('success')
+//     })
+// })
+//
+// // Get count of user playlists
+// app.get('/getuserplaylistscount/:userid', function(req, res) {
+//     let userId = req.params.userid
+//     db.collection('playlists').find({'owner.id': userId}).count(function(err, doc) {
+//         res.status(200)
+//         res.send(JSON.stringify(doc))
+//     })
+// })
+//
+// // Get users playlists
+//
+// app.get('/getplaylistsforuser/:userId/:quantity/:page', function(req, res){
+//     let userId = req.params.userId
+//     let quantity = parseInt(req.params.quantity)
+//     let page = req.params.page
+//     db.collection('playlists').find({'owner.id': userId}).skip((page-1)*quantity).limit(quantity).toArray(function(err, docs) {
+//         res.status(200);
+//         res.send(JSON.stringify(docs))
+//     })
+// })
+//
+// // Get playlist by ID
+//
+// app.get('/getplaylistdata/:playlistid', function(req, res) {
+//     let playlistId = req.params.playlistid
+//     db.collection('playlists').find({id: playlistId}).toArray(function(err, docs) {
+//         res.status(200)
+//         res.send(JSON.stringify(docs))
+//     })
+// })
+//
+// app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
+//     let userId = req.params.userid
+//     let searchWord = (req.params.searchword).toLowerCase()
+//     console.log(searchWord)
+//     db.collection('playlists').find({'owner.id': userId, 'searchName': new RegExp(searchWord)}).toArray(function(err, docs) {
+//         console.log(docs)
+//         res.status(200)
+//         res.send(JSON.stringify(docs))
+//     })
+// })
 
 // Method to check if users Spotify playlists are already in DB
 // app.get('/check', async function(req, res) {
@@ -245,23 +245,23 @@ app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
 
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
+// const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'music-app';
+// const dbName = 'music-app';
 
 // Create a new MongoClient
-const client = new MongoClient(url);
+// const client = new MongoClient(url);
 
 
 // Use connect method to connect to the Server
-client.connect(function (err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
+// client.connect(function (err) {
+    // assert.equal(null, err);
+    // console.log("Connected successfully to server");
 
-    db = client.db(dbName);
-    app.listen(8888)
+    // db = client.db(dbName);
+    // app.listen(8888)
     //client.close();
-});
-// console.log('Listening on 8888');
-// app.listen(8888);
+// });
+console.log('Listening on 8888');
+app.listen(8888);
