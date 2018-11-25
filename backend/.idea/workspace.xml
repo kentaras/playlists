@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f16bca8-1e45-4ea1-8a96-d7678ca0421f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/pages/base/loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/base/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/base/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/create/addplaylisttodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/create/addplaylisttodb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/homepage/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/homepage/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/viewplaylists/searchplaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/viewplaylists/searchplaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/viewplaylists/viewplaylists.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/viewplaylists/viewplaylists.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/services/getkey.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/getkey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/services/mongoservice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/services/mongoservice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stylesheets/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stylesheets/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stylesheets/viewplaylists.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stylesheets/viewplaylists.css" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="195" column="82" selection-start-line="195" selection-start-column="82" selection-end-line="195" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LICENSE">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>3000</find>
+      <find>possible</find>
+      <find>c</find>
+      <find>asses</find>
+      <find>270</find>
+      <find>localho</find>
+      <find>/</find>
+      <find>:3000</find>
+      <find>db</find>
+      <find>mongo</find>
+      <find>async</find>
+      <find>Id</find>
+      <find>node</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../../recipe-app/src/stylesheets/selectedCategory.css" />
+        <option value="$PROJECT_DIR$/../src/pages/body/footer.js" />
+        <option value="$PROJECT_DIR$/../src/pages/body/banner.js" />
+        <option value="$PROJECT_DIR$/../src/pages/body/container.js" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/body.css" />
+        <option value="$PROJECT_DIR$/../src/pages/body/main.js" />
+        <option value="$PROJECT_DIR$/../src/pages/body/menu.js" />
+        <option value="$PROJECT_DIR$/../src/pages/body/header.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/playlist.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/menu.js" />
+        <option value="$PROJECT_DIR$/../src/pages/search/searchplaylist.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/header.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/main.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/searchbar.js" />
+        <option value="$PROJECT_DIR$/../src/pages/search/searchbar.js" />
+        <option value="$PROJECT_DIR$/../src/pages/base/searchbar.js" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/searchbar.css" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/menu.css" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/App.css" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/scrollbar.css" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/login.css" />
+        <option value="$PROJECT_DIR$/../src/services/helperfunctions.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/predictivesearch.js" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/createplaylist.css" />
+        <option value="$PROJECT_DIR$/../src/pages/create/newplaylist.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/songsfound.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/create.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/container.js" />
+        <option value="$PROJECT_DIR$/../src/pages/base/header.js" />
+        <option value="$PROJECT_DIR$/../../recipe-app/src/pages/all/allrecipes.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/login.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/createplaylist.js" />
+        <option value="$PROJECT_DIR$/../src/pages/base/main.js" />
+        <option value="$PROJECT_DIR$/../src/pages/viewplaylists/playlists.js" />
+        <option value="$PROJECT_DIR$/../src/App.js" />
+        <option value="$PROJECT_DIR$/../src/pages/create/addplaylisttodb.js" />
+        <option value="$PROJECT_DIR$/../src/pages/base/loading.js" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/base.css" />
+        <option value="$PROJECT_DIR$/../src/pages/viewplaylists/searchplaylist.js" />
+        <option value="$PROJECT_DIR$/../src/services/getkey.js" />
+        <option value="$PROJECT_DIR$/../src/services/api.js" />
+        <option value="$PROJECT_DIR$/../src/services/mongoservice.js" />
+        <option value="$PROJECT_DIR$/../src/pages/homepage/homepage.js" />
+        <option value="$PROJECT_DIR$/../src/stylesheets/viewplaylists.css" />
+        <option value="$PROJECT_DIR$/../src/pages/viewplaylists/viewplaylists.js" />
+        <option value="$PROJECT_DIR$/../src/pages/base/menu.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../recipe-app/backend" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="NodeJSConfigurationType" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" node-parameters="--inspect" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f16bca8-1e45-4ea1-8a96-d7678ca0421f" name="Default Changelist" comment="" />
+      <created>1541283941769</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541283941769</updated>
+      <workItem from="1541283943037" duration="4294000" />
+      <workItem from="1541441404706" duration="84000" />
+      <workItem from="1541520214343" duration="57000" />
+      <workItem from="1541520309435" duration="164000" />
+      <workItem from="1541607321042" duration="749000" />
+      <workItem from="1541683309931" duration="3125000" />
+      <workItem from="1541774977921" duration="1253000" />
+      <workItem from="1541779912520" duration="32901000" />
+      <workItem from="1542042893630" duration="1335000" />
+      <workItem from="1542116239094" duration="5340000" />
+      <workItem from="1542134467726" duration="1987000" />
+      <workItem from="1542138165897" duration="2253000" />
+      <workItem from="1542140584046" duration="223000" />
+      <workItem from="1542141616287" duration="6087000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update SearchBar">
+      <created>1541905512768</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541905512768</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="59852000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3047473" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39969373" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.07656968" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32924962" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update SearchBar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update SearchBar" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>music-app</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>client.db().collection('playlists').find({}).toArray(function (err, docs) {
+    console.log(docs)
+})</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>db.collection('playlists').find({}).toArray(function (err, docs) {
+    console.log(docs)
+})</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>res</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.body</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>docs</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>doc</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>db.collection('playlists').find({}).toArray(function (err, docs) {})</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="564" column="19" selection-start-line="564" selection-start-column="19" selection-end-line="564" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="195" column="82" selection-start-line="195" selection-start-column="82" selection-end-line="195" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

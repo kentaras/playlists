@@ -1,0 +1,1 @@
+C:\mongodb\bin\mongod.exe --dbpath "C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\backend\db"

@@ -6,24 +6,17 @@
  * For more information, read
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
-// import {api} from '../src/services/api'
 const express = require('express'); // Express web server framework
 const request = require('request'); // "Request" library
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
-let db = null;
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 const bodyParser = require('body-parser');
-
-
-// const api = require('../src/services/api')
 
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
 const client_secret = 'ddcb1c4af3384ca2a2a27b2d12393e2f'; // Your secret
-// const redirect_uri = 'https://playlists-kentaraz355962.codeanyapp.com/callback'
 const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+// const redirect_uri = 'https://playlists-and-player-backend.herokuapp.com/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -50,7 +43,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => { //doesn't send response just adjusts it
-    res.header("Access-Control-Allow-Origin", '*') //* to give access to any origin
+    res.header("Access-Control-Allow-Origin", 'http://localhost:3000, https://playlists-and-player.herokuapp.com') //* to give access to any origin
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept, Authorization" //to give access to all the headers provided
@@ -132,6 +125,7 @@ app.get('/callback', function(req, res) {
 
                 // we can also pass the token to the browser to make requests from there
                 res.redirect('http://localhost:3000/callback?' +
+                // res.redirect('https://playlists-and-player.herokuapp.com/callback?' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token
@@ -171,97 +165,6 @@ app.get('/refresh_token', function(req, res) {
     });
 });
 
-// =========================MUSIC-APP===================== //
 
-// Insert playlist to DB
-
-app.put('/insertplaylist/', function (req, res) {
-    delete req.body._id
-    db.collection('playlists').replaceOne({ id: req.body.id }, req.body, { upsert: true })
-    // let queryInsert = db.collection('playlists').insertOne(req.body)
-})
-
-// Insert many playlists to DB
-
-app.post('/insertplaylists/', function (req, res) {
-    let queryUpdate = db.collection('playlists').insertMany(req.body)
-    // let queryInsert = db.collection('playlists').insertOne(req.body)
-    queryUpdate.then((res, err) => {
-        console.log(res);
-        console.log('success')
-    })
-})
-
-// Get count of user playlists
-app.get('/getuserplaylistscount/:userid', function(req, res) {
-    let userId = req.params.userid
-    db.collection('playlists').find({'owner.id': userId}).count(function(err, doc) {
-        res.status(200)
-        res.send(JSON.stringify(doc))
-    })
-})
-
-// Get users playlists
-
-app.get('/getplaylistsforuser/:userId/:quantity/:page', function(req, res){
-    let userId = req.params.userId
-    let quantity = parseInt(req.params.quantity)
-    let page = req.params.page
-    db.collection('playlists').find({'owner.id': userId}).skip((page-1)*quantity).limit(quantity).toArray(function(err, docs) {
-        res.status(200);
-        res.send(JSON.stringify(docs))
-    })
-})
-
-// Get playlist by ID
-
-app.get('/getplaylistdata/:playlistid', function(req, res) {
-    let playlistId = req.params.playlistid
-    db.collection('playlists').find({id: playlistId}).toArray(function(err, docs) {
-        res.status(200)
-        res.send(JSON.stringify(docs))
-    })
-})
-
-app.get('/getplaylistbysearch/:userid/:searchword', function(req, res) {
-    let userId = req.params.userid
-    let searchWord = (req.params.searchword).toLowerCase()
-    console.log(searchWord)
-    db.collection('playlists').find({'owner.id': userId, 'searchName': new RegExp(searchWord)}).toArray(function(err, docs) {
-        console.log(docs)
-        res.status(200)
-        res.send(JSON.stringify(docs))
-    })
-})
-
-// Method to check if users Spotify playlists are already in DB
-// app.get('/check', async function(req, res) {
-//     let spotifyPlaylists = await api.getPlaylistsData()
-//     let spotifyPlaylistsTracks = await api.getTracksData()
-//     res.status(200)
-//     res.send(JSON.stringify(spotifyPlaylists))
-//     console.log(spotifyPlaylists, spotifyPlaylistsTracks)
-// })
-
-
-// Connection URL
-const url = 'mongodb://localhost:27017';
-
-// Database Name
-const dbName = 'music-app';
-
-// Create a new MongoClient
-const client = new MongoClient(url);
-
-
-// Use connect method to connect to the Server
-client.connect(function (err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-
-    db = client.db(dbName);
-    app.listen(8888)
-    //client.close();
-});
-// console.log('Listening on 8888');
-// app.listen(8888);
+const port = (process.env.PORT || 8888)
+app.listen(port);
