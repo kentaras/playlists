@@ -3,6 +3,7 @@ import SearchBar from './searchbar'
 import MenuSideBar from './menu'
 import menuIcon from '../../images/menu.png'
 import api from '../../services/api'
+import loadImg from '../../images/searchloader.gif'
 
 class Header extends Component {
     constructor() {
@@ -32,15 +33,22 @@ class Header extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className={'header'}>
                 <MenuSideBar menu={this.state.menuVisible}/>
-                <img alt={'Menu'} onClick={(e) => this.toggleMenu(e)} className={'menuIcon'} src={menuIcon} />
+                <img alt={'Menu'} onClick={(e) => this.toggleMenu(e)} className={'menuIcon'} src={menuIcon}/>
                 {this.props.searchBar ? <SearchBar searchText={(e) => this.getSearchReq(e)}/> : ''}
+                {this.state.userName ?
                     <div className={'userInfo'}>
-                    <img alt={'User'} className={'userImg'} src={this.state.userImage}/>
-                    <h3 className={'userName'}>{this.state.userName}</h3>
-                </div>
+                        <img alt={'User'} className={'userImg'} src={this.state.userImage}/>
+                        <h3 className={'userName'}>{this.state.userName}</h3>
+                    </div>
+                    :
+                    <div className={'userInfo'}>
+                        <img alt={'User'} className={'userImg'} src={loadImg}/>
+                        <h3 className={'userName'}>Loading...</h3>
+                    </div>
+                }
             </div>
         )
     }

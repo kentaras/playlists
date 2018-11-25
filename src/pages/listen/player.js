@@ -19,6 +19,7 @@ import Loading from "../base/loading";
 import VolumeControl from "./volumecontrol";
 import PlayerContext from "./playercontext";
 import help from '../../services/helperfunctions'
+import InputSlider from 'react-input-slider'
 
 class Player extends Component {
     constructor(props) {
@@ -148,7 +149,7 @@ class Player extends Component {
 
     playerSetVolume(vol) {
         this.player.setVolume(vol).then(() => {
-            console.log('Volume is now ' + (vol * 100) + '%')
+            console.log('Volume is now ' + Math.floor(vol * 100) + '%')
             this.setState({volume: vol})
         })
     }
@@ -220,9 +221,9 @@ class Player extends Component {
 
     getArrowButtonValue() {
         if(this.state.showContext) {
-            return <img alt={'Hide'} className={'buttonImage'} src={arrowUpImg} />
+            return <img alt={'Hide'} className={'buttonImage arrowImg'} src={arrowUpImg} />
         } else {
-            return <img alt={'Show'} className={'buttonImage'} src={arrowDownImg} />
+            return <img alt={'Show'} className={'buttonImage arrowImg'} src={arrowDownImg} />
         }
     }
 
@@ -287,12 +288,13 @@ class Player extends Component {
                                     {/*<button className={'playerButton'} onClick={() => this.playerToggleRepeat()}> {this.getRepeatButtonValue()} </button>*/}
                                 </div>
                                 <div className={'slider'}>
-                                    <InputRange formatLabel={value => '' }
-                                                minValue={0}
-                                                maxValue={100}
-                                                onChange={value => this.changePosition(value)}
-                                                value={this.state.inputRangeValue}
-                                    />
+                                    <input
+                                        id="sliderInput"
+                                        type="range"
+                                        min="0" max="100"
+                                        value={this.state.inputRangeValue}
+                                        onChange={(e) => this.changePosition(e.target.value)}
+                                        step="1"/>
                                 </div>
                             </div>
                         </div>

@@ -6,6 +6,7 @@ export default class {
         playlistImages: [],
         onlyPlaylistNames: []
     }
+
     static accessToken = localStorage.getItem('access_token')
 
     // Method to get user data from Spotify

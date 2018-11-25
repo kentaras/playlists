@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
-import loadGif from '../images/loader.gif'
 import queryString from "query-string";
 import Error from "../pages/error";
+import Loading from "../pages/base/loading";
 
 class GetKey extends Component {
+    constructor(props) {
+        super(props);
+        this.interval = ''
+        this.state = {
+            error: ''
+        }
+    }
 
-    componentWillMount() {
+
+    async componentWillMount() {
         let urlQuery = queryString.parse(window.location.search)
         let accessToken = urlQuery.access_token
         if(accessToken) {
-            let toStorage = accessToken
-            localStorage.setItem('access_token', toStorage)
+            localStorage.setItem('access_token', accessToken)
             this.setState({ error: false })
         } else {
             this.setState({error: true})
@@ -18,14 +25,14 @@ class GetKey extends Component {
     }
 
     componentDidMount() {
-        this.props.history.push('/playlists')
+            window.location.href = '/playlists'
     }
 
     render() {
         if (!this.state.error) {
             return (
-                <div>
-                    <img alt={'Loading'} className={'loadPage'} src={loadGif}/>
+                <div className={'loginPage'}>
+                    <Loading page={'login'}/>
                 </div>
             )
         } else {
