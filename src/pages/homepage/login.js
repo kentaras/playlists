@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../stylesheets/login.css'
 import Loading from "../base/loading";
-import loadGif from "../../images/loader.gif";
 
 class Login extends Component {
 

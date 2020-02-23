@@ -11,7 +11,6 @@ import arrowDownImg from '../../images/arow-down.png'
 import arrowUpImg from '../../images/arrow-up.png'
 import nextButton from '../../images/next.png'
 import previousButton from '../../images/previous.png'
-import InputRange from 'react-input-range'
 // import repeatOffButton from '../../images/repeatOff.png'
 // import repeatAllButton from '../../images/repeatAll.png'
 // import repeatOneButton from '../../images/repeatOne.png'
@@ -19,7 +18,6 @@ import Loading from "../base/loading";
 import VolumeControl from "./volumecontrol";
 import PlayerContext from "./playercontext";
 import help from '../../services/helperfunctions'
-import InputSlider from 'react-input-slider'
 
 class Player extends Component {
     constructor(props) {
