@@ -46,6 +46,7 @@ class Player extends Component {
             showContext: '',
             context: '',
             linkedFromPlaylist: false,
+            error: false
         }
     }
 
@@ -159,13 +160,16 @@ class Player extends Component {
 
     async checkIfActive() {
         let deviceId = await api.getDeviceId()
-        if(deviceId.devices[0].is_active) {
+        if(deviceId && deviceId.devices && deviceId.devices[0] && deviceId.devices[0].is_active) {
             if(this.props.playlistId && !this.state.linkedFromPlaylist) {
                 api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 0)
                 this.setState({linkedFromPlaylist: true})
             }
             clearInterval(this.checkDeviceInterval)
             this.setState({loading: false})
+        } else if (deviceId && deviceId.devices && deviceId.devices[0] && !deviceId.devices[0].is_active) {
+            this.setState({ error: true, loading: false })
+
         }
     }
 
@@ -260,6 +264,12 @@ class Player extends Component {
             return(
                 <div className={'player nogrid'}>
                     <div> <Loading player={true}/> </div>
+                </div>
+            )
+        } else if (this.state.error) {
+            return(
+                <div>
+                    <h1> You need to have Spotify premium for this to work </h1>
                 </div>
             )
         } else {
