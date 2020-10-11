@@ -11,7 +11,7 @@ const request = require('request'); // "Request" library
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')s;
+const bodyParser = require('body-parser');
 
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
 const client_secret = 'ddcb1c4af3384ca2a2a27b2d12393e2f'; // Your secret
