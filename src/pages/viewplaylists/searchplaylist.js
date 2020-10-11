@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ViewPlaylists from './viewplaylists'
 import Loading from "../base/loading";
 import api from "../../services/api"
 import { Link } from 'react-router-dom'

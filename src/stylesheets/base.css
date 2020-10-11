@@ -61,10 +61,11 @@
 
 /* ====================LOADER================= */
 .loader {
-    position: absolute;
-    left: 40%;
+    text-align: center;
 }
-
+.loaderImage {
+    width: 50%;
+}
 /* ====================RESPONSIVE================= */
 @media only screen and (max-width: 650px) {
     .mainSection {
@@ -106,5 +107,10 @@
     .mainSection {
         height: auto;
         width: 100%;
+    }
+}
+@media only screen and (max-width: 370px) {
+    .userImg {
+        display: none;
     }
 }

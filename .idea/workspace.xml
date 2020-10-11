@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aabe9d8e-bb3f-4b3b-9b0e-787d6bb7ccc9" name="Default Changelist" comment="build version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/WiredTiger.turtle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/WiredTiger.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/collection-2--4547100272488008236.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/collection-2--4547100272488008236.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/collection-4--4547100272488008236.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/collection-4--4547100272488008236.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/diagnostic.data/metrics.interim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/index-3--4547100272488008236.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/index-3--4547100272488008236.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/index-5--4547100272488008236.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/index-5--4547100272488008236.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/index-6--4547100272488008236.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/index-6--4547100272488008236.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/journal/WiredTigerLog.0000000012" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/mongod.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/sizeStorer.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/homepage/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/homepage/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/listen/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/listen/player.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/listen/volumecontrol.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="55" column="2" selection-start-line="44" selection-end-line="55" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/helperfunctions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="6" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="105" column="4" lean-forward="true" selection-start-line="105" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>client</find>
+      <find>redirect_ur</find>
+      <find>playlists-an</find>
+      <find>callba</find>
+      <find>localhost</find>
+      <find>8888</find>
+      <find>/login</find>
+      <find>favi</find>
+      <find>favicon.ico</find>
+      <find>heroku</find>
+      <find>getItem</find>
+      <find>setInterval</find>
+      <find>redirect_uri</find>
+      <find>local</find>
+      <find>app.use</find>
+      <find>.show</find>
+      <find>.arrow</find>
+      <find>background</find>
+      <find>isPlaying</find>
+      <find>songPlay</find>
+      <find>position</find>
+      <find>arrow</find>
+      <find>Volume is n</find>
+      <find>Input</find>
+      <find>display: none</find>
+      <find>playerLoa</find>
+      <find>className={'load</find>
+      <find>display</find>
+      <find>loginPage</find>
+      <find>POST</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>this.playlistsDataVar</replace>
+      <replace>playlistsDataVar</replace>
+      <replace>state.search</replace>
+      <replace>foundSongs</replace>
+      <replace>this.state.predictiveSearch</replace>
+      <replace>'song-'</replace>
+      <replace>tracksForDB</replace>
+      <replace>playlistsTotal</replace>
+      <replace>this.state.currentPage</replace>
+      <replace>this.props.currentPage</replace>
+      <replace>this.props.playlistData</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="heroku" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/pages/base/searchbar.js" />
+        <option value="$PROJECT_DIR$/src/stylesheets/searchbar.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/App.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/scrollbar.css" />
+        <option value="$PROJECT_DIR$/src/pages/create/newplaylist.js" />
+        <option value="$PROJECT_DIR$/src/pages/create/songsfound.js" />
+        <option value="$PROJECT_DIR$/src/pages/homepage/container.js" />
+        <option value="$PROJECT_DIR$/../recipe-app/src/pages/all/allrecipes.js" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/playlists.js" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/viewplaylist/showplaylist" />
+        <option value="$PROJECT_DIR$/src/pages/create/predictivesearch.js" />
+        <option value="$PROJECT_DIR$/src/pages/listen/mainlisten.js" />
+        <option value="$PROJECT_DIR$/node_modules/react-spotify-player/src/SpotifyPlayer.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/listen/spotify.js" />
+        <option value="$PROJECT_DIR$/src/pages/base/menu.js" />
+        <option value="$PROJECT_DIR$/node_modules/react-input-range/lib/css/input-range/input-range.css" />
+        <option value="$PROJECT_DIR$/node_modules/react-input-range/react-input-range.d.ts" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/pages/listen/listen.js" />
+        <option value="$PROJECT_DIR$/src/services/mongoservice.js" />
+        <option value="$PROJECT_DIR$/src/pages/base/main.js" />
+        <option value="$PROJECT_DIR$/src/pages/create/create.js" />
+        <option value="$PROJECT_DIR$/src/stylesheets/createplaylist.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/menu.css" />
+        <option value="$PROJECT_DIR$/node_modules/react-input-range/lib/css/index.css" />
+        <option value="$PROJECT_DIR$/src/pages/create/createplaylist.js" />
+        <option value="$PROJECT_DIR$/src/services/helperfunctions.js" />
+        <option value="$PROJECT_DIR$/src/stylesheets/playlistinfo.css" />
+        <option value="$PROJECT_DIR$/src/pages/listen/volumecontrol.js" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/viewplaylist/playlistinfo.js" />
+        <option value="$PROJECT_DIR$/src/pages/create/addplaylisttodb.js" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/viewplaylist/showplaylist.js" />
+        <option value="$PROJECT_DIR$/src/pages/homepage/homepage.js" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/viewplaylists.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/listen/playercontext.js" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/backend/Procfile" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/viewplaylists/searchplaylist.js" />
+        <option value="$PROJECT_DIR$/src/services/api.js" />
+        <option value="$PROJECT_DIR$/src/pages/base/header.js" />
+        <option value="$PROJECT_DIR$/backend/app.js" />
+        <option value="$PROJECT_DIR$/src/stylesheets/viewplaylists.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/listen.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/base.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/login.css" />
+        <option value="$PROJECT_DIR$/src/services/getkey.js" />
+        <option value="$PROJECT_DIR$/src/pages/base/loading.js" />
+        <option value="$PROJECT_DIR$/src/pages/listen/player.js" />
+        <option value="$PROJECT_DIR$/src/pages/homepage/login.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="55" />
+    <option name="y" value="-10" />
+    <option name="width" value="1555" />
+    <option name="height" value="920" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="homepage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="listen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="viewplaylists" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="viewplaylists" type="462c0819:PsiDirectoryNode" />
+              <item name="viewplaylist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\node_modules\prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 183.4284.46\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\backend" />
+      <recent name="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\src\pages\base" />
+      <recent name="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\src" />
+      <recent name="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\src\pages\body" />
+      <recent name="C:\Users\Saulius\Desktop\Programavimas\Baltic Talents\music-app\src\pages" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" node-parameters="--inspect=5858" path-to-js-file="backend/app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aabe9d8e-bb3f-4b3b-9b0e-787d6bb7ccc9" name="Default Changelist" comment="" />
+      <created>1541076182773</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541076182773</updated>
+      <workItem from="1541076184060" duration="36507000" />
+      <workItem from="1541283951751" duration="17114000" />
+      <workItem from="1541328085727" duration="23363000" />
+      <workItem from="1541434158145" duration="4000" />
+      <workItem from="1541441391584" duration="93000" />
+      <workItem from="1541607330857" duration="1218000" />
+      <workItem from="1541683267953" duration="8425000" />
+      <workItem from="1541692403934" duration="473000" />
+      <workItem from="1541774955606" duration="1366000" />
+      <workItem from="1541779945024" duration="73511000" />
+      <workItem from="1541905543937" duration="19364000" />
+      <workItem from="1542042855202" duration="1769000" />
+      <workItem from="1542116226381" duration="4823000" />
+      <workItem from="1542134459650" duration="3548000" />
+      <workItem from="1542138145664" duration="2032000" />
+      <workItem from="1542140563433" duration="311000" />
+      <workItem from="1542141627004" duration="7695000" />
+      <workItem from="1542208397248" duration="45000" />
+      <workItem from="1542221545092" duration="5066000" />
+      <workItem from="1542226654002" duration="22831000" />
+      <workItem from="1542388592807" duration="10232000" />
+      <workItem from="1542400580493" duration="593000" />
+      <workItem from="1542401202671" duration="53713000" />
+      <workItem from="1542631809557" duration="30795000" />
+      <workItem from="1542983810518" duration="42503000" />
+      <workItem from="1543146224517" duration="88000" />
+      <workItem from="1543162314679" duration="12570000" />
+      <workItem from="1543414979226" duration="36000" />
+      <workItem from="1543589560315" duration="815000" />
+      <workItem from="1543781838044" duration="9000" />
+      <workItem from="1543948472916" duration="33000" />
+      <workItem from="1543948533625" duration="15000" />
+      <workItem from="1544113614507" duration="189000" />
+      <workItem from="1544229890366" duration="17000" />
+      <workItem from="1544231212355" duration="42000" />
+      <workItem from="1544231268524" duration="7000" />
+    </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <created>1541084857036</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541084857036</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Get access key">
+      <created>1541094841270</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541094841270</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Get some data from API">
+      <created>1541097374000</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541097374000</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Asign data to state wrong">
+      <created>1541355092167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1541355092167</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix state Data">
+      <created>1541361221858</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1541361221858</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Make playlist search work">
+      <created>1541685355300</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1541685355300</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Make it orderly">
+      <created>1541798595881</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1541798595881</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Start making 'create playlist'">
+      <created>1541813300936</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541813300936</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Prepare to connect to mongoDB">
+      <created>1541880644530</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1541880644530</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix front-end">
+      <created>1541894987005</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1541894987005</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Make pagination">
+      <created>1542035275173</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1542035275173</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Data from mongo">
+      <created>1542208421430</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1542208421430</updated>
+    </task>
+    <task id="LOCAL-00013" summary="SelectedPlaylist from Mongo">
+      <created>1542226788426</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1542226788427</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Edit playlist, update it in mongo">
+      <created>1542296400000</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1542296400000</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add images">
+      <created>1542298386804</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1542298386804</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add backend">
+      <created>1542298706017</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1542298706017</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add backend">
+      <created>1542307096124</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542307096124</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add player controls">
+      <created>1542465030125</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1542465030125</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add player UI">
+      <created>1542472886436</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1542472886436</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Make player controls">
+      <created>1542558294023</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1542558294023</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add context field">
+      <created>1542564482393</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1542564482393</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add playlist context">
+      <created>1542639665123</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1542639665123</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add images">
+      <created>1542642189043</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1542642189043</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Make show playlist get data from API">
+      <created>1542744112050</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1542744112050</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Works from API, can modify spotify playlists">
+      <created>1543011681497</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1543011681497</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Edit some warnings">
+      <created>1543015746341</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1543015746341</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Make search work again">
+      <created>1543016525302</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543016525302</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Make search work again">
+      <created>1543018714937</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543018714937</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Make search work again">
+      <created>1543020422440</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1543020422440</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Make responsive, get access key on time">
+      <created>1543172284969</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1543172284970</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="381215000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="npm" order="1" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.7557756" visible="true" weight="0.14672835" />
+      <window_info id="Structure" order="3" sideWeight="0.24422443" side_tool="true" visible="true" weight="0.14672835" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49966952" visible="true" weight="0.0719755" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50033045" side_tool="true" weight="0.5421133" />
+      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32924962" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.30321592" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.45788667" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.47166923" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.0091883615" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.053598776" />
+      <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32924962" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="npm" order="1" side_tool="true" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="3" weight="0.14672835" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.21898928" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32924962" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32924962" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.43950996" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.0091883615" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32924962" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Make it orderly" />
+    <MESSAGE value="Start making 'create playlist'" />
+    <MESSAGE value="Prepare to connect to mongoDB" />
+    <MESSAGE value="Fix front-end" />
+    <MESSAGE value="Create and insert playlists to DB" />
+    <MESSAGE value="Pagination works" />
+    <MESSAGE value="Make pagination" />
+    <MESSAGE value="Data from mongo" />
+    <MESSAGE value="SelectedPlaylist from Mongo" />
+    <MESSAGE value="Edit playlist, update it in mongo" />
+    <MESSAGE value="add images" />
+    <MESSAGE value="add backend" />
+    <MESSAGE value="Add backend" />
+    <MESSAGE value="Add player controls" />
+    <MESSAGE value="Add player UI" />
+    <MESSAGE value="Make player controls" />
+    <MESSAGE value="Add context field" />
+    <MESSAGE value="Add playlist context" />
+    <MESSAGE value="Add images" />
+    <MESSAGE value="Make show playlist get data from API" />
+    <MESSAGE value="Works from API, can modify spotify playlists" />
+    <MESSAGE value="Edit some warnings" />
+    <MESSAGE value="Make responsive, get access key on time" />
+    <MESSAGE value="Make search work again" />
+    <MESSAGE value="build version" />
+    <option name="LAST_COMMIT_MESSAGE" value="build version" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>err</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/services/mongoservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/listen/listen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/create/create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/listen/playerplaylists.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react-spotify-player/src/SpotifyPlayer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#224#265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/create/newplaylist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/createplaylist.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="126" column="21" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/create/predictivesearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/base/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-input-range/lib/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/create/createplaylist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="46" column="81" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-iframe/demo/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/playlistinfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/viewplaylists/viewplaylist/playlistinfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="115" selection-start-line="17" selection-start-column="115" selection-end-line="17" selection-end-column="115" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/create/addplaylisttodb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/viewplaylists/viewplaylist/showplaylist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/homepage/homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-input-range/react-input-range.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/implicit_grant/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/backend/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/public/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/background.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/startDB.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="89" selection-start-column="89" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/viewplaylists/viewplaylists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="64" column="38" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/base/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/viewplaylists.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/viewplaylists/searchplaylist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-139">
+          <caret line="1" column="75" selection-start-line="1" selection-start-column="75" selection-end-line="1" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/listen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3510">
+          <caret line="223" column="21" selection-start-line="223" selection-start-column="21" selection-end-line="223" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/static/css/1.9c5dd416.chunk.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/static/css/main.a9f8f489.chunk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="46" lean-forward="true" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/precache-manifest.8f16f657895e6ca264fcc5c377a66434.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/listen/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/homepage/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/listen/playercontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/getkey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/base/loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/listen/volumecontrol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/helperfunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="55" column="2" selection-start-line="44" selection-end-line="55" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="105" column="4" lean-forward="true" selection-start-line="105" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

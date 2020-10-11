@@ -3,6 +3,8 @@ import SearchBar from './searchbar'
 import MenuSideBar from './menu'
 import menuIcon from '../../images/menu.png'
 import api from '../../services/api'
+import loadImg from '../../images/searchloader.gif'
+import Login from '../homepage/login'
 
 class Header extends Component {
     constructor() {
@@ -10,13 +12,18 @@ class Header extends Component {
         this.state = {
             menuVisible: 'hidden',
             userName: '',
-            userImage: ''
+            userImage: '',
+            unauthorized: false
         }
     }
 
     async componentWillMount() {
         let userData = await api.getUserData()
-        this.setState({userName: userData.display_name, userImage: userData.images[0].url})
+        if (userData && userData.images && userData.images) {
+            this.setState({ userName: userData.display_name, userImage: userData.images[0].url })
+        } else {
+            this.setState({ unauthorized: true })
+        }
     }
 
     getSearchReq(e) {
@@ -32,17 +39,28 @@ class Header extends Component {
     }
 
     render() {
-        return(
-            <div className={'header'}>
-                <MenuSideBar menu={this.state.menuVisible}/>
-                <img alt={'Menu'} onClick={(e) => this.toggleMenu(e)} className={'menuIcon'} src={menuIcon} />
-                {this.props.searchBar ? <SearchBar searchText={(e) => this.getSearchReq(e)}/> : ''}
-                    <div className={'userInfo'}>
-                    <img alt={'User'} className={'userImg'} src={this.state.userImage}/>
-                    <h3 className={'userName'}>{this.state.userName}</h3>
+        if (this.state.unauthorized) {
+            return <Login></Login>
+        } else {
+            return (
+                <div className={'header'}>
+                    <MenuSideBar menu={this.state.menuVisible}/>
+                    <img alt={'Menu'} onClick={(e) => this.toggleMenu(e)} className={'menuIcon'} src={menuIcon}/>
+                    {this.props.searchBar ? <SearchBar searchText={(e) => this.getSearchReq(e)}/> : ''}
+                    {this.state.userName ?
+                        <div className={'userInfo'}>
+                            <img alt={'User'} className={'userImg'} src={this.state.userImage}/>
+                            <h3 className={'userName'}>{this.state.userName}</h3>
+                        </div>
+                        :
+                        <div className={'userInfo'}>
+                            <img alt={'User'} className={'userImg'} src={loadImg}/>
+                            <h3 className={'userName'}>Loading...</h3>
+                        </div>
+                    }
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 

@@ -11,7 +11,6 @@ import arrowDownImg from '../../images/arow-down.png'
 import arrowUpImg from '../../images/arrow-up.png'
 import nextButton from '../../images/next.png'
 import previousButton from '../../images/previous.png'
-import InputRange from 'react-input-range'
 // import repeatOffButton from '../../images/repeatOff.png'
 // import repeatAllButton from '../../images/repeatAll.png'
 // import repeatOneButton from '../../images/repeatOne.png'
@@ -47,6 +46,7 @@ class Player extends Component {
             showContext: '',
             context: '',
             linkedFromPlaylist: false,
+            error: false
         }
     }
 
@@ -148,7 +148,7 @@ class Player extends Component {
 
     playerSetVolume(vol) {
         this.player.setVolume(vol).then(() => {
-            console.log('Volume is now ' + (vol * 100) + '%')
+            console.log('Volume is now ' + Math.floor(vol * 100) + '%')
             this.setState({volume: vol})
         })
     }
@@ -160,13 +160,16 @@ class Player extends Component {
 
     async checkIfActive() {
         let deviceId = await api.getDeviceId()
-        if(deviceId.devices[0].is_active) {
+        if(deviceId && deviceId.devices && deviceId.devices[0] && deviceId.devices[0].is_active) {
             if(this.props.playlistId && !this.state.linkedFromPlaylist) {
                 api.playSong('spotify:user:1197275119:playlist:'+this.props.playlistId, 0)
                 this.setState({linkedFromPlaylist: true})
             }
             clearInterval(this.checkDeviceInterval)
             this.setState({loading: false})
+        } else if (deviceId && deviceId.devices && deviceId.devices[0] && !deviceId.devices[0].is_active) {
+            this.setState({ error: true, loading: false })
+
         }
     }
 
@@ -220,9 +223,9 @@ class Player extends Component {
 
     getArrowButtonValue() {
         if(this.state.showContext) {
-            return <img alt={'Hide'} className={'buttonImage'} src={arrowUpImg} />
+            return <img alt={'Hide'} className={'buttonImage arrowImg'} src={arrowUpImg} />
         } else {
-            return <img alt={'Show'} className={'buttonImage'} src={arrowDownImg} />
+            return <img alt={'Show'} className={'buttonImage arrowImg'} src={arrowDownImg} />
         }
     }
 
@@ -263,6 +266,12 @@ class Player extends Component {
                     <div> <Loading player={true}/> </div>
                 </div>
             )
+        } else if (this.state.error) {
+            return(
+                <div>
+                    <h1> You need to have Spotify premium for this to work </h1>
+                </div>
+            )
         } else {
 
             return (
@@ -287,12 +296,13 @@ class Player extends Component {
                                     {/*<button className={'playerButton'} onClick={() => this.playerToggleRepeat()}> {this.getRepeatButtonValue()} </button>*/}
                                 </div>
                                 <div className={'slider'}>
-                                    <InputRange formatLabel={value => '' }
-                                                minValue={0}
-                                                maxValue={100}
-                                                onChange={value => this.changePosition(value)}
-                                                value={this.state.inputRangeValue}
-                                    />
+                                    <input
+                                        id="sliderInput"
+                                        type="range"
+                                        min="0" max="100"
+                                        value={this.state.inputRangeValue}
+                                        onChange={(e) => this.changePosition(e.target.value)}
+                                        step="1"/>
                                 </div>
                             </div>
                         </div>

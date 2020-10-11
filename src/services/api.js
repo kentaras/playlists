@@ -6,6 +6,7 @@ export default class {
         playlistImages: [],
         onlyPlaylistNames: []
     }
+
     static accessToken = localStorage.getItem('access_token')
 
     // Method to get user data from Spotify
@@ -80,11 +81,16 @@ export default class {
     }
 
     static async getCurrentPlaybackInfo() {
+        console.log('here')
         let currentInfo = await fetch(this.url + 'me/player', {
             headers: {'Authorization': 'Bearer ' + this.accessToken}
         }).then(response => response.json())
             .then(device => {
+                console.log(device)
                 return device
+            })
+            .catch(error => {
+                console.log(error)
             })
         return currentInfo
     }

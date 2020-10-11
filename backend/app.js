@@ -6,19 +6,12 @@
  * For more information, read
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
-// import {api} from '../src/services/api'
 const express = require('express'); // Express web server framework
 const request = require('request'); // "Request" library
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
-let db = null;
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-const bodyParser = require('body-parser');
-
-
-// const api = require('../src/services/api')
+const bodyParser = require('body-parser')s;
 
 const client_id = '8bdaab5d6d8a4c2eae42c9d6e0dc7db1'; // Your client id
 const client_secret = 'ddcb1c4af3384ca2a2a27b2d12393e2f'; // Your secret
@@ -50,7 +43,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => { //doesn't send response just adjusts it
-    res.header("Access-Control-Allow-Origin", '*') //* to give access to any origin
+    res.header("Access-Control-Allow-Origin", 'http://localhost:3000, https://playlists-and-player.herokuapp.com') //* to give access to any origin
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept, Authorization" //to give access to all the headers provided

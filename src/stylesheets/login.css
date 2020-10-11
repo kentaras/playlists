@@ -1,24 +1,18 @@
 .loginPage {
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    /*width: 100%;*/
-    padding-bottom: 47.1%;
+    background-image: linear-gradient(to bottom, rgb(34, 104, 104), rgb(104, 104, 104));
+    text-align: center;
+    height: 500px;
+    padding: 20%;
 }
-.btn-login {
-    border-radius: 10%;
+.login {
     outline: none;
     background-color: transparent;
     border: 2px solid slategrey;
     cursor: pointer;
+    color: rgb(34, 104, 104);
+    height: 30%;
+    width: 65%;
 }
 .btn-login:hover {
     box-shadow: 0 0 3px 5px slategrey;
-}
-.login {
-    position: absolute;
-    left: 45%;
-    top: 40%;
-    width: 150px;
-    height: 80px;
-    font-size: 1.5em;
 }
