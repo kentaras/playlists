@@ -68,11 +68,13 @@ class ShowPlaylist extends Component {
         songs.push(song.tracks.items[0].uri)
         let response = await api.insertSongs(songs, this.state.playlist.id)
         let playlistTracks = await api.getPlaylistTracksDataByURL(response.url)
-        playlistObj.tracks.items.push(playlistTracks.items[(playlistTracks.total)-1])
-        if(playlistObj.tracks.items[0]) {
-            this.setState({playlist: playlistObj})
-        } else {
-            console.log('Error')
+        if (playlistTracks) {
+            playlistObj.tracks.items.push(playlistTracks.items[(playlistTracks.total)-1])
+            if(playlistObj.tracks.items[0]) {
+                this.setState({playlist: playlistObj})
+            } else {
+                console.log('Error')
+            }
         }
 
     }
